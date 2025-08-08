@@ -31,7 +31,7 @@
 
       <!-- FORMULARIO DE LOGIN (visible por defecto) -->
       <form class="login-form" name="formLogin" id="formLogin" action="">
-        <h3 class="login-head"><i class="fa fa-lg fa-fw fa-user"></i>INICIAR SESIÓN</h3>
+        <h3 class="login-head"><i class="fa fa-lg fa-fw fa-user"></i>ESTE ES EL NUEVO INICIO DE SESION</h3>
         <div class="form-group">
           <label class="control-label">USUARIO</label>
           <input id="txtEmail" name="txtEmail" class="form-control" type="email" placeholder="Email" autofocus>
