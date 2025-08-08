@@ -162,7 +162,7 @@
 							</li>
 
 							<li>
-								<a href="<?= base_url(); ?>/contacto">Contacto</a>
+								<a href="<?= base_url(); ?>/contacto">contacto y hola mundo </a>
 							</li>
 						</ul>
 					</div>	
