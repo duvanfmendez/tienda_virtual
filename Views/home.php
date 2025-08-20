@@ -12,7 +12,7 @@
  ?>
 	<!-- Slider -->
 	<section class="section-slide">
-<!-- holi como tas, poq no me mandas un mensaje de texto, un waza-->
+
 		<div class="wrap-slick1">
 			<div class="slick1">
 			<?php 
