@@ -26,6 +26,7 @@
                     <table class="table table-hover table-bordered" id="tableRoles">
                       <thead>
                         <tr>
+                          <!-- ludwin es re gei chupa-->
                           <th>ID</th>
                           <th>Nombre</th>
                           <th>Descripción</th>
