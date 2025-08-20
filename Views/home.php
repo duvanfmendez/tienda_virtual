@@ -12,7 +12,7 @@
  ?>
 	<!-- Slider -->
 	<section class="section-slide">
-
+<!-- cambio en new-->
 		<div class="wrap-slick1">
 			<div class="slick1">
 			<?php 
