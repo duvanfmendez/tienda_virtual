@@ -14,7 +14,9 @@
 
   <title><?= $data['page_tag']; ?></title>
 </head>
-
+<body style="background-image: url('Assets/images/fondo.png');
+ background-size: cover; background-position: center center; background-attachment:
+  fixed;">
 <body>
   <section class="material-half-bg">
     <div class="cover"></div>
