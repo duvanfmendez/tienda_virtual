@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 21-08-2025 a las 16:12:12
+-- Tiempo de generación: 22-08-2025 a las 18:25:34
 -- Versión del servidor: 10.4.32-MariaDB
 -- Versión de PHP: 8.2.12
 
@@ -28,13 +28,13 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `categoria` (
-  `idcategoria` bigint(20) NOT NULL,
-  `nombre` varchar(255) NOT NULL,
-  `descripcion` text NOT NULL,
-  `portada` varchar(100) NOT NULL,
-  `datecreated` datetime NOT NULL DEFAULT current_timestamp(),
-  `ruta` varchar(255) NOT NULL,
-  `status` int(11) NOT NULL DEFAULT 1
+  `idcategoria` bigint(20) NOT NULL COMMENT 'Numero id de la categoria',
+  `nombre` varchar(255) NOT NULL COMMENT 'Nombre de la categoria',
+  `descripcion` text NOT NULL COMMENT 'Descripción de la categoria',
+  `portada` varchar(100) NOT NULL COMMENT 'Imagen de la categoría',
+  `datecreated` datetime NOT NULL DEFAULT current_timestamp() COMMENT 'Fecha de creación',
+  `ruta` varchar(255) NOT NULL COMMENT 'Ruta de búsqueda',
+  `status` int(11) NOT NULL DEFAULT 1 COMMENT 'Estado activo o inactivo '
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_swedish_ci;
 
 --
@@ -62,26 +62,15 @@ INSERT INTO `categoria` (`idcategoria`, `nombre`, `descripcion`, `portada`, `dat
 --
 
 CREATE TABLE `contacto` (
-  `id` bigint(20) NOT NULL,
-  `nombre` varchar(200) NOT NULL,
-  `email` varchar(200) NOT NULL,
-  `mensaje` text NOT NULL,
-  `ip` varchar(15) NOT NULL,
-  `dispositivo` varchar(25) NOT NULL,
-  `useragent` text NOT NULL,
-  `datecreated` datetime NOT NULL DEFAULT current_timestamp()
+  `id` bigint(20) NOT NULL COMMENT 'ID de la PQR',
+  `nombre` varchar(200) NOT NULL COMMENT 'Nombre del usuario',
+  `email` varchar(200) NOT NULL COMMENT 'Correo del usuario',
+  `mensaje` text NOT NULL COMMENT 'Descripción de la PQR',
+  `ip` varchar(15) NOT NULL COMMENT 'Dirección IP ',
+  `dispositivo` varchar(25) NOT NULL COMMENT 'El dispositivo donde se hizo la queja',
+  `useragent` text NOT NULL COMMENT 'Navegador y sistema operativo',
+  `datecreated` datetime NOT NULL DEFAULT current_timestamp() COMMENT 'Fecha del PQR'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_swedish_ci;
-
---
--- Volcado de datos para la tabla `contacto`
---
-
-INSERT INTO `contacto` (`id`, `nombre`, `email`, `mensaje`, `ip`, `dispositivo`, `useragent`, `datecreated`) VALUES
-(1, 'Abel', 'info@abelosh.com', 'Mensaje de prueba', '127.0.0.1', 'PC', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:89.0) Gecko/20100101 Firefox/89.0', '2021-07-09 01:19:37'),
-(2, 'Abel', 'info@abelosh.com', 'Mensaje de prueba', '127.0.0.1', 'PC', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:89.0) Gecko/20100101 Firefox/89.0', '2021-07-09 01:21:50'),
-(3, 'Carlos', 'carlos@info.com', 'Otro mensaje de prueba.', '127.0.0.1', 'PC', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:89.0) Gecko/20100101 Firefox/89.0', '2021-07-09 01:23:41'),
-(4, 'Roberto', 'roberto@info.com', 'Mensaje de prueba', '::1', 'PC', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36', '2021-07-09 01:47:28'),
-(5, 'Ricardo', 'ricardo@info.com', 'Nuevo mensaje de prueba.', '::1', 'PC', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36', '2021-07-09 02:02:05');
 
 -- --------------------------------------------------------
 
@@ -96,6 +85,13 @@ CREATE TABLE `detalle_pedido` (
   `precio` decimal(11,2) NOT NULL,
   `cantidad` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_swedish_ci;
+
+--
+-- Volcado de datos para la tabla `detalle_pedido`
+--
+
+INSERT INTO `detalle_pedido` (`id`, `pedidoid`, `productoid`, `precio`, `cantidad`) VALUES
+(124, 58, 46, 700.00, 18);
 
 -- --------------------------------------------------------
 
@@ -169,8 +165,7 @@ INSERT INTO `imagen` (`id`, `productoid`, `img`) VALUES
 (80, 43, 'pro_574e6eec50d15cf70b57716afff533a4.jpg'),
 (81, 44, 'pro_96145b359e874bc76b9375ab838d0d29.jpg'),
 (82, 45, 'pro_2cc7a4c21bc4ea51614e570a3f6651b8.jpg'),
-(83, 46, 'pro_4603c032d98cf80122b8eb22cc42431d.jpg'),
-(84, 47, 'pro_5d0cef3d9e21b4a49fb100cede88402c.jpg');
+(83, 46, 'pro_4603c032d98cf80122b8eb22cc42431d.jpg');
 
 -- --------------------------------------------------------
 
@@ -219,6 +214,13 @@ CREATE TABLE `pedido` (
   `direccion_envio` text NOT NULL,
   `status` varchar(100) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_swedish_ci;
+
+--
+-- Volcado de datos para la tabla `pedido`
+--
+
+INSERT INTO `pedido` (`idpedido`, `referenciacobro`, `idtransaccionpaypal`, `datospaypal`, `personaid`, `fecha`, `costo_envio`, `monto`, `tipopagoid`, `direccion_envio`, `status`) VALUES
+(58, NULL, NULL, NULL, 28, '2025-08-22 10:10:51', 50.00, 12650.00, 2, 'flores andina, bogota', 'Pendiente');
 
 -- --------------------------------------------------------
 
@@ -312,8 +314,6 @@ CREATE TABLE `persona` (
 
 INSERT INTO `persona` (`idpersona`, `identificacion`, `nombres`, `apellidos`, `telefono`, `email_user`, `password`, `nit`, `nombrefiscal`, `direccionfiscal`, `token`, `rolid`, `datecreated`, `status`) VALUES
 (1, '2409198920', 'Abel', 'OSH', 1234567, 'info@abelosh.com', '8d969eef6ecad3c29a3a629280e686cf0c3f5d5a86aff3ca12020c923adc6c92', '24252622', 'Abel OSH', 'Antigua Guatemala', '716e8ca01ee89d6fa8f3-841d4f828a8f873766ab-28953617ef5ca74e1111-17efcbee05deff1ce2e7', 1, '2020-08-13 00:51:44', 1),
-(3, NULL, 'Antoni', 'Gutierres', 3154789456, 'antoni@gmail.com', '8d969eef6ecad3c29a3a629280e686cf0c3f5d5a86aff3ca12020c923adc6c92', NULL, NULL, NULL, NULL, 7, '2025-07-10 14:21:32', 1),
-(4, '50123278', 'Cristina', 'Ayala', 3125407315, 'cris@gmail.com', '8d969eef6ecad3c29a3a629280e686cf0c3f5d5a86aff3ca12020c923adc6c92', NULL, NULL, NULL, NULL, 7, '2025-07-10 14:31:20', 1),
 (25, '1111111', 'Duvan', 'Mendez', 3452897945, '11111@gmail.com', '8d969eef6ecad3c29a3a629280e686cf0c3f5d5a86aff3ca12020c923adc6c92', NULL, NULL, NULL, NULL, 7, '2025-07-10 17:22:40', 1),
 (27, '79988577', 'Jose Andres', 'Zambrano Dias', 3154789456, 'jose_andres@gmail.com', '8d969eef6ecad3c29a3a629280e686cf0c3f5d5a86aff3ca12020c923adc6c92', NULL, NULL, NULL, NULL, 7, '2025-07-11 08:00:57', 1),
 (28, '555555555', 'Santiago', 'Santiago', 987654321, 'santiago@gmail.com', '49faaade493be8b6b6164ee67f7e4d101812a5dda970d6ca693dda8b8cf82e4b', NULL, NULL, NULL, NULL, 1, '2025-08-21 08:55:49', 1);
@@ -405,8 +405,7 @@ INSERT INTO `producto` (`idproducto`, `categoriaid`, `codigo`, `nombre`, `descri
 (43, 1, '111122226668', 'Carenaje KIT YAHAMA DT', '<p>Carenaje KIT YAHAMA DT</p>', 146.00, 3, '', '2025-07-10 15:30:32', 'carenaje-kit-yahama-dt', 1),
 (44, 1, '111122226669', 'Direccional Zxd-41 Lineal Secuencial Con Stop Amarillo', '<p>Direccional Zxd-41 Lineal Secuencial Con Stop Amarillo</p>', 135.00, 4, '', '2025-07-10 15:32:02', 'direccional-zxd-41-lineal-secuencial-con-stop-amarillo', 1),
 (45, 1, '1111222266610', 'Kit De Arrastre Revo Libero 125rv-Ybr12 5', '<p>Kit De Arrastre Revo Libero 125rv-Ybr12 5</p>', 200.00, 2, '', '2025-07-10 15:32:42', 'kit-de-arrastre-revo-libero-125rv-ybr12-5', 1),
-(46, 7, '111122225551', 'MANUBRIO LAZER TIPO PROTAPER CROSS', '<p>MANUBRIO LAZER TIPO PROTAPER CROSS</p>', 700.00, 3, '', '2025-07-10 15:44:35', 'manubrio-lazer-tipo-protaper-cross', 1),
-(47, 5, '45454545', 'hhshshshshs', '', 45454.00, 4, '', '2025-07-11 07:54:55', 'hhshshshshs', 1);
+(46, 7, '111122225551', 'MANUBRIO LAZER TIPO PROTAPER CROSS', '<p>MANUBRIO LAZER TIPO PROTAPER CROSS</p>', 700.00, 3, '', '2025-07-10 15:44:35', 'manubrio-lazer-tipo-protaper-cross', 1);
 
 -- --------------------------------------------------------
 
@@ -614,19 +613,19 @@ ALTER TABLE `tipopago`
 -- AUTO_INCREMENT de la tabla `categoria`
 --
 ALTER TABLE `categoria`
-  MODIFY `idcategoria` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+  MODIFY `idcategoria` bigint(20) NOT NULL AUTO_INCREMENT COMMENT 'Numero id de la categoria', AUTO_INCREMENT=18;
 
 --
 -- AUTO_INCREMENT de la tabla `contacto`
 --
 ALTER TABLE `contacto`
-  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT COMMENT 'ID de la PQR', AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT de la tabla `detalle_pedido`
 --
 ALTER TABLE `detalle_pedido`
-  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=124;
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=125;
 
 --
 -- AUTO_INCREMENT de la tabla `detalle_temp`
@@ -650,7 +649,7 @@ ALTER TABLE `modulo`
 -- AUTO_INCREMENT de la tabla `pedido`
 --
 ALTER TABLE `pedido`
-  MODIFY `idpedido` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=58;
+  MODIFY `idpedido` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=59;
 
 --
 -- AUTO_INCREMENT de la tabla `permisos`
