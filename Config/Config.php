@@ -21,7 +21,7 @@
 
 	//Simbolo de moneda
 	const SMONEY = "$";
-	const CURRENCY = "USD";
+	const CURRENCY = "COP";
 
 	//Api PayPal
 	//SANDBOX PAYPAL
@@ -34,22 +34,22 @@
 	//const SECRET = "ELCYtuxTFft8kEuAhcg8jE7_Bi31BnMd8E4DilpsnnsgXnZRUA8AKiXHwOVSPVu7xFIDZYw_6AjXulyC";
 
 	//Datos envio de correo
-	const NOMBRE_REMITENTE = "Tienda Virtual";
-	const EMAIL_REMITENTE = "no-reply@abelosh.com";
-	const NOMBRE_EMPESA = "Tienda Virtual";
-	const WEB_EMPRESA = "www.abelosh.com";
+	const NOMBRE_REMITENTE = "StuntRider";
+	const EMAIL_REMITENTE = "soportestuntriders@gmail.com";
+	const NOMBRE_EMPESA = "StuntRider";
+	const WEB_EMPRESA = "www.StuntRiders";
 
 	const DESCRIPCION = "La mejor tienda en línea con artículos de motos.";
-	const SHAREDHASH = "TiendaVirtual";
+	const SHAREDHASH = "Stunt Riders";
 
 	//Datos Empresa
 	const DIRECCION = "Cra. 15 Bis #18A - 07 local 1, Los Mártires, Bogotá, Cundinamarca";
 	const TELEMPRESA = "+(57)3212050326";
 	const WHATSAPP = "+57 321 2050326";
-	const EMAIL_EMPRESA = "stuntridersbogota@hotmail.com";
-	const EMAIL_PEDIDOS = "stuntridersbogota@hotmail.com"; 
-	const EMAIL_SUSCRIPCION = "stuntridersbogota@hotmail.com";
-	const EMAIL_CONTACTO = "stuntridersbogota@hotmail.com";
+	const EMAIL_EMPRESA = "soportestuntriders@gmail.com";
+	const EMAIL_PEDIDOS = "soportestuntriders@gmail.com"; 
+	const EMAIL_SUSCRIPCION = "soportestuntriders@gmail.com";
+	const EMAIL_CONTACTO = "soportestuntriders@gmail.com";
 
 	const CAT_SLIDER = "1,2,3";
 	const CAT_BANNER = "4,5,6";
@@ -98,8 +98,8 @@
 	const PROBUSCAR = 4;
 
 	//REDES SOCIALES
-	const FACEBOOK = "https://www.facebook.com/abelosh";
-	const INSTAGRAM = "https://www.instagram.com/febel24/";
+	const FACEBOOK = "https://www.facebook.com/stuntriderscolombia/?locale=es_LA";
+	const INSTAGRAM = "https://www.instagram.com/stuntriderscolombia/";
 	
 
  ?>

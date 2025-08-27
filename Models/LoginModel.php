@@ -34,8 +34,6 @@
 							p.telefono,
 							p.email_user,
 							p.nit,
-							p.nombrefiscal,
-							p.direccionfiscal,
 							r.idrol,r.nombrerol,
 							p.status 
 					FROM persona p

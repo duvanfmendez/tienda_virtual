@@ -56,98 +56,50 @@
         return $file;        
     }
     //Envio de correos
-    function sendEmail($data,$template)
-    {
-        if(ENVIRONMENT == 1){
-            $asunto = $data['asunto'];
-            $emailDestino = $data['email'];
-            $empresa = NOMBRE_REMITENTE;
-            $remitente = EMAIL_REMITENTE;
-            $emailCopia = !empty($data['emailCopia']) ? $data['emailCopia'] : "";
-            //ENVIO DE CORREO
-            $de = "MIME-Version: 1.0\r\n";
-            $de .= "Content-type: text/html; charset=UTF-8\r\n";
-            $de .= "From: {$empresa} <{$remitente}>\r\n";
-            $de .= "Bcc: $emailCopia\r\n";
-            ob_start();
-            require_once("Views/Template/Email/".$template.".php");
-            $mensaje = ob_get_clean();
-            $send = mail($emailDestino, $asunto, $mensaje, $de);
-            return $send;
-        }else{
-           //Create an instance; passing `true` enables exceptions
-            $mail = new PHPMailer(true);
-            ob_start();
-            require_once("Views/Template/Email/".$template.".php");
-            $mensaje = ob_get_clean();
+    function sendEmail($data, $template){
 
-            try {
-                //Server settings
-                $mail->SMTPDebug = 0;                      //Enable verbose debug output
-                $mail->isSMTP();                                            //Send using SMTP
-                $mail->Host       = 'smtp.gmail.com';                     //Set the SMTP server to send through
-                $mail->SMTPAuth   = true;                                   //Enable SMTP authentication
-                $mail->Username   = 'toolsfordeveloper@gmail.com';          //SMTP username
-                $mail->Password   = '@dmin08a';                               //SMTP password
-                $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;            //Enable implicit TLS encryption
-                $mail->Port       = 465;                                    //TCP port to connect to; use 587 if you have set `SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS`
+        $mail=new PHPMailer(true);
 
-                //Recipients
-                $mail->setFrom('toolsfordeveloper@gmail.com', 'Servidor Local');
-                $mail->addAddress($data['email']);     //Add a recipient
-                if(!empty($data['emailCopia'])){
-                    $mail->addBCC($data['emailCopia']);
-                }
-                $mail->CharSet = 'UTF-8';
-                //Content
-                $mail->isHTML(true);                                  //Set email format to HTML
-                $mail->Subject = $data['asunto'];
-                $mail->Body    = $mensaje;
-                
-                $mail->send();
-                return true;
-            } catch (Exception $e) {
-                return false;
-            } 
-        }
-    }
+        $mail->SMTPDebug = 2; 
+        $mail->Debugoutput = function($str, $level){
+            error_log("Debug SMTP [$level]: $str\n",3,__DIR__."debug_smtp.log");
 
-    function sendMailLocal($data,$template){
-        //Create an instance; passing `true` enables exceptions
-        $mail = new PHPMailer(true);
+        };
+        $mail->Timeout = 10;
+
         ob_start();
-        require_once("Views/Template/Email/".$template.".php");
+        require_once("View/template/Email/". $template.".php");
         $mensaje = ob_get_clean();
 
         try {
-            //Server settings
-            $mail->SMTPDebug = 1;                      //Enable verbose debug output
-            $mail->isSMTP();                                            //Send using SMTP
-            $mail->Host       = 'smtp.gmail.com';                     //Set the SMTP server to send through
-            $mail->SMTPAuth   = true;                                   //Enable SMTP authentication
-            $mail->Username   = 'toolsfordeveloper@gmail.com';                     //SMTP username
-            $mail->Password   = '';                               //SMTP password
-            $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;            //Enable implicit TLS encryption
-            $mail->Port       = 465;                                    //TCP port to connect to; use 587 if you have set `SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS`
+            $mail->isSMTP();
+            $mail->Host       = 'sandbox.smtp.mailtrap.io';
+            $mail->SMTPAuth   = true;
+            $mail->Username   = '21284351369b1e'; // tu user de Mailtrap
+            $mail->Password   = 'ee3073b04b6312'; // tu password de Mailtrap
+            $mail->Port       = 2525;
 
-            //Recipients
-            $mail->setFrom('toolsfordeveloper@gmail.com', 'Servidor Local');
-            $mail->addAddress($data['email']);     //Add a recipient
-            if(!empty($data['emailCopia'])){
+            $mail->setFrom('noreply@localhost.com', 'Servidor Local');
+            $mail->addAddress($data['email']);
+            if (!empty($data['emailCopia'])) {
                 $mail->addBCC($data['emailCopia']);
             }
 
-            //Content
-            $mail->isHTML(true);                                  //Set email format to HTML
+            $mail->CharSet = 'UTF-8';
+            $mail->isHTML(true);
             $mail->Subject = $data['asunto'];
             $mail->Body    = $mensaje;
-            
+
             $mail->send();
-            echo 'Mensaje enviado';
+            return true;
         } catch (Exception $e) {
-            echo "Error en el envío del mensaje: {$mail->ErrorInfo}";
+            error_log("Error PHPMailer: " . $mail->ErrorInfo);
+            echo "Error PHPMailer: " . $mail->ErrorInfo;
+            exit;
         }
-    }
+
+
+    }    
 
     function getPermisos(int $idmodulo){
         require_once ("Models/PermisosModel.php");

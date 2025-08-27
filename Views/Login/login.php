@@ -56,7 +56,7 @@
 
       <!-- FORMULARIO DE RECUPERACIÓN -->
       <form id="formRecetPass" name="formRecetPass" class="forget-form d-none" action="">
-        <h3 class="login-head"><i class="fa fa-lg fa-fw fa-lock"></i>¿Olvidaste contraseña?</h3>
+        <h3 class="login-head"><i class="fa fa-lg fa-fw fa-lock"></i>¿Olvidaste contrasena?</h3>
         <div class="form-group">
           <label class="control-label">EMAIL</label>
           <input id="txtEmailReset" name="txtEmailReset" class="form-control" type="email" placeholder="Email">
