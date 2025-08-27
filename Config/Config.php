@@ -1,15 +1,15 @@
 <?php 
 	//const BASE_URL = "https://abelosh.com/store";
-	const BASE_URL = "http://localhost/tienda_virtual";
+	const BASE_URL = "http://sql208.infinityfree.com/tienda_virtual";
 
 	//Zona horaria
 	date_default_timezone_set('America/Guatemala');
 
 	//Datos de conexión a Base de Datos
-	const DB_HOST = "localhost";
-	const DB_NAME = "db_tiendavirtual";
-	const DB_USER = "root";
-	const DB_PASSWORD = "";
+	const DB_HOST = "sql208.infinityfree.com";
+	const DB_NAME = "if0_39804321_tienda_virtual";
+	const DB_USER = "if0_39804321";
+	const DB_PASSWORD = "stuntriders2025";
 	const DB_CHARSET = "utf8";
 
 	//Para envío de correo
