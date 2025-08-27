@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 22-08-2025 a las 18:25:34
+-- Tiempo de generación: 27-08-2025 a las 06:36:53
 -- Versión del servidor: 10.4.32-MariaDB
 -- Versión de PHP: 8.2.12
 
@@ -79,11 +79,11 @@ CREATE TABLE `contacto` (
 --
 
 CREATE TABLE `detalle_pedido` (
-  `id` bigint(20) NOT NULL,
-  `pedidoid` bigint(20) NOT NULL,
-  `productoid` bigint(20) NOT NULL,
-  `precio` decimal(11,2) NOT NULL,
-  `cantidad` int(11) NOT NULL
+  `id` bigint(20) NOT NULL COMMENT 'ID',
+  `pedidoid` bigint(20) NOT NULL COMMENT 'ID del detalle pedido',
+  `productoid` bigint(20) NOT NULL COMMENT 'ID del producto',
+  `precio` decimal(11,2) NOT NULL COMMENT 'Valor del pedido',
+  `cantidad` int(11) NOT NULL COMMENT 'Cantidad de productos'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_swedish_ci;
 
 --
@@ -100,12 +100,12 @@ INSERT INTO `detalle_pedido` (`id`, `pedidoid`, `productoid`, `precio`, `cantida
 --
 
 CREATE TABLE `detalle_temp` (
-  `id` bigint(20) NOT NULL,
-  `personaid` bigint(20) NOT NULL,
-  `productoid` bigint(20) NOT NULL,
-  `precio` decimal(11,2) NOT NULL,
-  `cantidad` int(11) NOT NULL,
-  `transaccionid` varchar(255) NOT NULL
+  `id` bigint(20) NOT NULL COMMENT 'ID',
+  `personaid` bigint(20) NOT NULL COMMENT 'Id del usuario',
+  `productoid` bigint(20) NOT NULL COMMENT 'Id del producto',
+  `precio` decimal(11,2) NOT NULL COMMENT 'valor del producto',
+  `cantidad` int(11) NOT NULL COMMENT 'cantidad de productos',
+  `transaccionid` varchar(255) NOT NULL COMMENT 'Id de la transaccion'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_swedish_ci;
 
 -- --------------------------------------------------------
@@ -115,9 +115,9 @@ CREATE TABLE `detalle_temp` (
 --
 
 CREATE TABLE `imagen` (
-  `id` bigint(20) NOT NULL,
-  `productoid` bigint(20) NOT NULL,
-  `img` varchar(100) NOT NULL
+  `id` bigint(20) NOT NULL COMMENT 'ID ',
+  `productoid` bigint(20) NOT NULL COMMENT 'Id del producto',
+  `img` varchar(100) NOT NULL COMMENT 'Imagen del producto'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_swedish_ci;
 
 --
@@ -174,10 +174,10 @@ INSERT INTO `imagen` (`id`, `productoid`, `img`) VALUES
 --
 
 CREATE TABLE `modulo` (
-  `idmodulo` bigint(20) NOT NULL,
-  `titulo` varchar(50) NOT NULL,
-  `descripcion` text NOT NULL,
-  `status` int(11) NOT NULL DEFAULT 1
+  `idmodulo` bigint(20) NOT NULL COMMENT 'Id ',
+  `titulo` varchar(50) NOT NULL COMMENT 'Nombre del modulo',
+  `descripcion` text NOT NULL COMMENT 'Nombre del modulo',
+  `status` int(11) NOT NULL DEFAULT 1 COMMENT 'Estado Activo o inactivo'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_swedish_ci;
 
 --
@@ -202,17 +202,17 @@ INSERT INTO `modulo` (`idmodulo`, `titulo`, `descripcion`, `status`) VALUES
 --
 
 CREATE TABLE `pedido` (
-  `idpedido` bigint(20) NOT NULL,
-  `referenciacobro` varchar(255) DEFAULT NULL,
-  `idtransaccionpaypal` varchar(255) DEFAULT NULL,
-  `datospaypal` text DEFAULT NULL,
-  `personaid` bigint(20) NOT NULL,
-  `fecha` datetime NOT NULL DEFAULT current_timestamp(),
-  `costo_envio` decimal(10,2) NOT NULL DEFAULT 0.00,
-  `monto` decimal(11,2) NOT NULL,
-  `tipopagoid` bigint(20) NOT NULL,
-  `direccion_envio` text NOT NULL,
-  `status` varchar(100) DEFAULT NULL
+  `idpedido` bigint(20) NOT NULL COMMENT 'Id del pedido',
+  `referenciacobro` varchar(255) DEFAULT NULL COMMENT 'Numero de referencia',
+  `idtransaccionpaypal` varchar(255) DEFAULT NULL COMMENT 'Id transaccion de paypal',
+  `datospaypal` text DEFAULT NULL COMMENT 'Datos de paypal',
+  `personaid` bigint(20) NOT NULL COMMENT 'Id del usuario',
+  `fecha` datetime NOT NULL DEFAULT current_timestamp() COMMENT 'Fecha del pedido',
+  `costo_envio` decimal(10,2) NOT NULL DEFAULT 0.00 COMMENT 'Valor del envio',
+  `monto` decimal(11,2) NOT NULL COMMENT 'Valor del pedido',
+  `tipopagoid` bigint(20) NOT NULL COMMENT 'Id del tipo de pago',
+  `direccion_envio` text NOT NULL COMMENT 'Direccion para el envio',
+  `status` varchar(100) DEFAULT NULL COMMENT 'Estado activo o inactivo '
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_swedish_ci;
 
 --
@@ -292,31 +292,29 @@ INSERT INTO `permisos` (`idpermiso`, `rolid`, `moduloid`, `r`, `w`, `u`, `d`) VA
 --
 
 CREATE TABLE `persona` (
-  `idpersona` bigint(20) NOT NULL,
-  `identificacion` varchar(30) DEFAULT NULL,
-  `nombres` varchar(80) NOT NULL,
-  `apellidos` varchar(100) NOT NULL,
-  `telefono` bigint(20) NOT NULL,
-  `email_user` varchar(100) NOT NULL,
-  `password` varchar(75) NOT NULL,
-  `nit` varchar(20) DEFAULT NULL,
-  `nombrefiscal` varchar(80) DEFAULT NULL,
-  `direccionfiscal` varchar(100) DEFAULT NULL,
-  `token` varchar(100) DEFAULT NULL,
-  `rolid` bigint(20) NOT NULL,
-  `datecreated` datetime NOT NULL DEFAULT current_timestamp(),
-  `status` int(11) NOT NULL DEFAULT 1
+  `idpersona` bigint(20) NOT NULL COMMENT 'Id de la persona',
+  `identificacion` varchar(30) DEFAULT NULL COMMENT 'Documento del usuario',
+  `nombres` varchar(80) NOT NULL COMMENT 'Nombre del usuario',
+  `apellidos` varchar(100) NOT NULL COMMENT 'Apellido del usuario',
+  `telefono` bigint(20) NOT NULL COMMENT 'Telefono',
+  `email_user` varchar(100) NOT NULL COMMENT 'Correo ',
+  `password` varchar(75) NOT NULL COMMENT 'Contraseña',
+  `nit` varchar(20) DEFAULT NULL COMMENT 'Nit',
+  `token` varchar(100) DEFAULT NULL COMMENT 'token',
+  `rolid` bigint(20) NOT NULL COMMENT 'Id del rol',
+  `datecreated` datetime NOT NULL DEFAULT current_timestamp() COMMENT 'Fecha de creacion',
+  `status` int(11) NOT NULL DEFAULT 1 COMMENT 'Estado'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_swedish_ci;
 
 --
 -- Volcado de datos para la tabla `persona`
 --
 
-INSERT INTO `persona` (`idpersona`, `identificacion`, `nombres`, `apellidos`, `telefono`, `email_user`, `password`, `nit`, `nombrefiscal`, `direccionfiscal`, `token`, `rolid`, `datecreated`, `status`) VALUES
-(1, '2409198920', 'Abel', 'OSH', 1234567, 'info@abelosh.com', '8d969eef6ecad3c29a3a629280e686cf0c3f5d5a86aff3ca12020c923adc6c92', '24252622', 'Abel OSH', 'Antigua Guatemala', '716e8ca01ee89d6fa8f3-841d4f828a8f873766ab-28953617ef5ca74e1111-17efcbee05deff1ce2e7', 1, '2020-08-13 00:51:44', 1),
-(25, '1111111', 'Duvan', 'Mendez', 3452897945, '11111@gmail.com', '8d969eef6ecad3c29a3a629280e686cf0c3f5d5a86aff3ca12020c923adc6c92', NULL, NULL, NULL, NULL, 7, '2025-07-10 17:22:40', 1),
-(27, '79988577', 'Jose Andres', 'Zambrano Dias', 3154789456, 'jose_andres@gmail.com', '8d969eef6ecad3c29a3a629280e686cf0c3f5d5a86aff3ca12020c923adc6c92', NULL, NULL, NULL, NULL, 7, '2025-07-11 08:00:57', 1),
-(28, '555555555', 'Santiago', 'Santiago', 987654321, 'santiago@gmail.com', '49faaade493be8b6b6164ee67f7e4d101812a5dda970d6ca693dda8b8cf82e4b', NULL, NULL, NULL, NULL, 1, '2025-08-21 08:55:49', 1);
+INSERT INTO `persona` (`idpersona`, `identificacion`, `nombres`, `apellidos`, `telefono`, `email_user`, `password`, `nit`, `token`, `rolid`, `datecreated`, `status`) VALUES
+(1, '2409198920', 'Abel', 'OSH', 1234567, 'info@abelosh.com', '8d969eef6ecad3c29a3a629280e686cf0c3f5d5a86aff3ca12020c923adc6c92', '24252622', '716e8ca01ee89d6fa8f3-841d4f828a8f873766ab-28953617ef5ca74e1111-17efcbee05deff1ce2e7', 1, '2020-08-13 00:51:44', 1),
+(25, '1111111', 'Duvan', 'Mendez', 3452897945, '11111@gmail.com', '8d969eef6ecad3c29a3a629280e686cf0c3f5d5a86aff3ca12020c923adc6c92', NULL, NULL, 7, '2025-07-10 17:22:40', 1),
+(27, '79988577', 'Jose Andres', 'Zambrano Dias', 3154789456, 'jose_andres@gmail.com', '8d969eef6ecad3c29a3a629280e686cf0c3f5d5a86aff3ca12020c923adc6c92', NULL, NULL, 7, '2025-07-11 08:00:57', 1),
+(28, '555555555', 'Santiago', 'Santiago', 987654321, 'santiago@gmail.com', '49faaade493be8b6b6164ee67f7e4d101812a5dda970d6ca693dda8b8cf82e4b', NULL, NULL, 1, '2025-08-21 08:55:49', 1);
 
 -- --------------------------------------------------------
 
@@ -325,13 +323,13 @@ INSERT INTO `persona` (`idpersona`, `identificacion`, `nombres`, `apellidos`, `t
 --
 
 CREATE TABLE `post` (
-  `idpost` bigint(20) NOT NULL,
-  `titulo` varchar(255) NOT NULL,
-  `contenido` text NOT NULL,
-  `portada` varchar(100) DEFAULT NULL,
-  `datecreate` datetime NOT NULL DEFAULT current_timestamp(),
-  `ruta` varchar(255) NOT NULL,
-  `status` int(11) NOT NULL DEFAULT 1
+  `idpost` bigint(20) NOT NULL COMMENT 'Id',
+  `titulo` varchar(255) NOT NULL COMMENT 'Nombre',
+  `contenido` text NOT NULL COMMENT 'El contenido de la pagina',
+  `portada` varchar(100) DEFAULT NULL COMMENT 'Portada dela pagina',
+  `datecreate` datetime NOT NULL DEFAULT current_timestamp() COMMENT 'Fecha de creacion',
+  `ruta` varchar(255) NOT NULL COMMENT 'Ruta del post',
+  `status` int(11) NOT NULL DEFAULT 1 COMMENT 'Estado'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_swedish_ci;
 
 --
@@ -625,31 +623,31 @@ ALTER TABLE `contacto`
 -- AUTO_INCREMENT de la tabla `detalle_pedido`
 --
 ALTER TABLE `detalle_pedido`
-  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=125;
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT COMMENT 'ID', AUTO_INCREMENT=125;
 
 --
 -- AUTO_INCREMENT de la tabla `detalle_temp`
 --
 ALTER TABLE `detalle_temp`
-  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT COMMENT 'ID';
 
 --
 -- AUTO_INCREMENT de la tabla `imagen`
 --
 ALTER TABLE `imagen`
-  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=85;
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT COMMENT 'ID ', AUTO_INCREMENT=85;
 
 --
 -- AUTO_INCREMENT de la tabla `modulo`
 --
 ALTER TABLE `modulo`
-  MODIFY `idmodulo` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `idmodulo` bigint(20) NOT NULL AUTO_INCREMENT COMMENT 'Id ', AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT de la tabla `pedido`
 --
 ALTER TABLE `pedido`
-  MODIFY `idpedido` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=59;
+  MODIFY `idpedido` bigint(20) NOT NULL AUTO_INCREMENT COMMENT 'Id del pedido', AUTO_INCREMENT=59;
 
 --
 -- AUTO_INCREMENT de la tabla `permisos`
@@ -661,13 +659,13 @@ ALTER TABLE `permisos`
 -- AUTO_INCREMENT de la tabla `persona`
 --
 ALTER TABLE `persona`
-  MODIFY `idpersona` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
+  MODIFY `idpersona` bigint(20) NOT NULL AUTO_INCREMENT COMMENT 'Id de la persona', AUTO_INCREMENT=29;
 
 --
 -- AUTO_INCREMENT de la tabla `post`
 --
 ALTER TABLE `post`
-  MODIFY `idpost` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `idpost` bigint(20) NOT NULL AUTO_INCREMENT COMMENT 'Id', AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT de la tabla `producto`
