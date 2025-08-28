@@ -1,4 +1,4 @@
-
+<p>coneccion en server</p>
 <?php 
 	require_once("Config/Config.php");
 	require_once("Helpers/Helpers.php");
