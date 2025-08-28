@@ -1,26 +1,26 @@
 <?php 
 	
-	//const BASE_URL = "http://localhost/tienda_virtual";
+	const BASE_URL = "http://localhost/tienda_virtual";
 
 	//Zona horaria
-	data_defaulr_timezone_set("America/Bogota");
 
-	/*/Datos de conexión a Base de Datos
+
+	//Datos de conexión a Base de Datos
 	const DB_HOST = "localhost";
 	const DB_NAME = "db_tiendavirtual";
 	const DB_USER = "root";
 	const DB_PASSWORD = "";
-	const DB_CHARSET = "utf8";*/
+	const DB_CHARSET = "utf8";
 
 	//Variables de hosting
-	
+	/*
 	 const BASE_URL = "http://sql106.infinityfree.com/stunrider.free.nf";
 	 const DB_HOST = "sql106.infinityfree.com";
 	 const DB_NAME = "if0_39811723_XXX";
 	 const DB_USER = "if0_39811723";
 	 const DB_PASSWORD = "stuntrider1234";
 	 const DB_CHARSET = "utf8";
-
+*/
 	//Para envío de correo
 	const ENVIRONMENT = 1; // Local: 0, Produccón: 1;
 
