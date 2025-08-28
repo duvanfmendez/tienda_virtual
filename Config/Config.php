@@ -1,6 +1,6 @@
 <?php 
 	
-	
+	const BASE_URL = "http://localhost/tienda_virtual";
 
 	//Zona horaria
 
