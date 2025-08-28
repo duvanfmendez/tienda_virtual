@@ -21,7 +21,7 @@
 	// const DB_PASSWORD = "stuntriders2025";
 
 	//Para envío de correo
-	const ENVIRONMENT = 0; // Local: 0, Produccón: 1;
+	const ENVIRONMENT = 1; // Local: 0, Produccón: 1;
 
 	//Deliminadores decimal y millar Ej. 24,1989.00
 	const SPD = ".";
@@ -64,8 +64,8 @@
 	const CAT_FOOTER = "1,2,3,4,5";
 
 	//Datos para Encriptar / Desencriptar
-	const KEY = 'abelosh';
-	const METHODENCRIPT = "AES-128-ECB";
+	const KEY = 'stunt';
+	const METHODENCRIPT = "STU-128-ECB";
 
 	//Envío
 	const COSTOENVIO = 50;
