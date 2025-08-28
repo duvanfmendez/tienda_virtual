@@ -1,6 +1,6 @@
 <?php 
 	
-	const BASE_URL = "http://localhost/tienda_virtual";
+	
 
 	//Zona horaria
 
@@ -14,7 +14,7 @@
 
 	//Variables de hosting
 	
-	 const BASE_URL = "http://ebmmkqu0.infinityfree.com/tienda_virtual";
+	 const BASE_URL = "http://ebmmkqu0.infinityfree.com/stunrider.free.nf";
 	 const DB_HOST = "sql106.infinityfree.com";
 	 const DB_NAME = "if0_39811723_db_tiendavirtual";
 	 const DB_USER = "if0_39811723";
