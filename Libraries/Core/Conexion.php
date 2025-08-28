@@ -3,9 +3,9 @@ class Conexion{
 	private $conect;
 
 	public function __construct(){
-		$connectionString = "mysql:host=".sql106.infinityfree.com.";dbname=".if0_39811723_XXX.";charset=".DB_CHARSET;
+		$connectionString = "mysql:host=".DB_HOST.";dbname=".DB_NAME.";charset=".DB_CHARSET;
 		try{
-			$this->conect = new PDO($connectionString, if0_39811723, stuntrider1234);
+			$this->conect = new PDO($connectionString, DB_USER, DB_PASSWORD);
 			$this->conect->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 		    //echo "conexión exitosa";
 		}catch(PDOException $e){
