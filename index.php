@@ -2,13 +2,10 @@
 <?php 
 	require_once("Config/Config.php");
 	require_once("Helpers/Helpers.php");
-<<<<<<< Updated upstream
-	require_once("Libraries/Core/Autoload.php");
-	require_once("Libraries/Core/Load.php");
- 
-=======
 
->>>>>>> Stashed changes
+ 
+
+
 	$url = !empty($_GET['url']) ? $_GET['url'] : 'home/home';
 	$arrUrl = explode("/", $url);
 	$controller = $arrUrl[0];
