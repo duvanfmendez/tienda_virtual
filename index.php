@@ -1,7 +1,9 @@
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootsstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+<p>coneccion en server</p>
 <?php 
 	require_once("Config/Config.php");
 	require_once("Helpers/Helpers.php");
+	require_once("Libraries/Core/Autoload.php");
+	require_once("Libraries/Core/Load.php");
  
 	$url = !empty($_GET['url']) ? $_GET['url'] : 'home/home';
 	$arrUrl = explode("/", $url);
@@ -28,9 +30,6 @@
 			$params = trim($params,',');
 		}
 	}
-
-	require_once("Libraries/Core/Autoload.php");
-	require_once("Libraries/Core/Load.php");
 
  ?>
 

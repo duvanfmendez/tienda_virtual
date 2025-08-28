@@ -5,23 +5,23 @@
 	//Zona horaria
 
 
-	//Datos de conexión a Base de Datos
+	/*/Datos de conexión a Base de Datos
 	const DB_HOST = "localhost";
 	const DB_NAME = "db_tiendavirtual";
 	const DB_USER = "root";
 	const DB_PASSWORD = "";
-	const DB_CHARSET = "utf8";
+	const DB_CHARSET = "utf8";*/
 
 	//Variables de hosting
 	
-	// const BASE_URL = "http://sql208.infinityfree.com/tienda_virtual";
-	// const DB_HOST = "sql208.infinityfree.com";
-	// const DB_NAME = "if0_39804321_tienda_virtual";
-	// const DB_USER = "if0_39804321";
-	// const DB_PASSWORD = "stuntriders2025";
+	 const BASE_URL = "http://ebmmkqu0.infinityfree.com/stunrider.free.nf";
+	 const DB_HOST = "sql106.infinityfree.com";
+	 const DB_NAME = "if0_39811723_XXX";
+	 const DB_USER = "if0_39811723";
+	 const DB_PASSWORD = "stuntrider1234";
 
 	//Para envío de correo
-	const ENVIRONMENT = 0; // Local: 0, Produccón: 1;
+	const ENVIRONMENT = 1; // Local: 0, Produccón: 1;
 
 	//Deliminadores decimal y millar Ej. 24,1989.00
 	const SPD = ".";
@@ -64,8 +64,8 @@
 	const CAT_FOOTER = "1,2,3,4,5";
 
 	//Datos para Encriptar / Desencriptar
-	const KEY = 'abelosh';
-	const METHODENCRIPT = "AES-128-ECB";
+	const KEY = 'stunt';
+	const METHODENCRIPT = "STU-128-ECB";
 
 	//Envío
 	const COSTOENVIO = 50;
