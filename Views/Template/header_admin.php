@@ -14,6 +14,8 @@
     <link rel="stylesheet" type="text/css" href="<?= media();?>/css/bootstrap-select.min.css"> 
     <link rel="stylesheet" type="text/css" href="<?= media();?>/js/datepicker/jquery-ui.min.css"> 
     <link rel="stylesheet" type="text/css" href="<?= media(); ?>/css/style.css">
+    
+
   </head>
   <body class="app sidebar-mini">
     <div id="divLoading" >

@@ -2,7 +2,7 @@
 <?php 
 	require_once("Config/Config.php");
 	require_once("Helpers/Helpers.php");
-		require_once("Libraries/Core/Autoload.php");
+	require_once("Libraries/Core/Autoload.php");
 	require_once("Libraries/Core/Load.php");
  
 	$url = !empty($_GET['url']) ? $_GET['url'] : 'home/home';
