@@ -5,20 +5,20 @@
 	//Zona horaria
 
 
-	//Datos de conexión a Base de Datos
+	/*/Datos de conexión a Base de Datos
 	const DB_HOST = "localhost";
 	const DB_NAME = "db_tiendavirtual";
 	const DB_USER = "root";
 	const DB_PASSWORD = "";
-	const DB_CHARSET = "utf8";
+	const DB_CHARSET = "utf8";*/
 
 	//Variables de hosting
 	
-	// const BASE_URL = "http://sql208.infinityfree.com/tienda_virtual";
-	// const DB_HOST = "sql208.infinityfree.com";
-	// const DB_NAME = "if0_39804321_tienda_virtual";
-	// const DB_USER = "if0_39804321";
-	// const DB_PASSWORD = "stuntriders2025";
+	 const BASE_URL = "http://ebmmkqu0.infinityfree.com/tienda_virtual";
+	 const DB_HOST = "sql106.infinityfree.com";
+	 const DB_NAME = "if0_39811723_db_tiendavirtual";
+	 const DB_USER = "if0_39811723";
+	 const DB_PASSWORD = "stuntrider1234";
 
 	//Para envío de correo
 	const ENVIRONMENT = 1; // Local: 0, Produccón: 1;
