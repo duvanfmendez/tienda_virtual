@@ -14,7 +14,9 @@
 
   <title><?= $data['page_tag']; ?></title>
 </head>
-
+<body style="background-image: url('Assets/images/fondo.png');
+ background-size: cover; background-position: center center; background-attachment:
+  fixed;">
 <body>
   <section class="material-half-bg">
     <div class="cover"></div>
@@ -54,7 +56,7 @@
 
       <!-- FORMULARIO DE RECUPERACIÓN -->
       <form id="formRecetPass" name="formRecetPass" class="forget-form d-none" action="">
-        <h3 class="login-head"><i class="fa fa-lg fa-fw fa-lock"></i>¿Olvidaste contraseña?</h3>
+        <h3 class="login-head"><i class="fa fa-lg fa-fw fa-lock"></i>¿Olvidaste contrasena?</h3>
         <div class="form-group">
           <label class="control-label">EMAIL</label>
           <input id="txtEmailReset" name="txtEmailReset" class="form-control" type="email" placeholder="Email">
