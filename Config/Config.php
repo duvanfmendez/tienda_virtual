@@ -1,6 +1,6 @@
 <?php 
 
-	/*/const BASE_URL = "http://localhost/tienda_virtual";
+	const BASE_URL = "http://localhost/tienda_virtual";
 
 	//Zona horaria
 	date_default_timezone_set('America/Guatemala');
@@ -10,19 +10,19 @@
 	const DB_NAME = "db_tiendavirtual";
 	const DB_USER = "root";
 	const DB_PASSWORD = "";
-	const DB_CHARSET = "utf8";/*/
+	const DB_CHARSET = "utf8";
 
-	const BASE_URL = "https://alpha1.wuaze.com/";
+	//const BASE_URL = "https://alpha1.wuaze.com/";
 
 	//Zona horaria
 	
 
-	//Datos de conexión a Base de Dato
+	/*Datos de conexión a Base de Dato
 	const DB_HOST = "sql213.infinityfree.com";
 	const DB_NAME = "if0_39840090_db_tiendavirtual";
 	const DB_USER = "if0_39840090";
 	const DB_PASSWORD = "mUyeXxgya9A";
-	const DB_CHARSET = "utf8";
+	const DB_CHARSET = "utf8";*/
 
 	//Para envío de correo
 	const ENVIRONMENT = 1; // Local: 0, Produccón: 1;
