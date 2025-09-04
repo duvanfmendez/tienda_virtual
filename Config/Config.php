@@ -1,6 +1,6 @@
 <?php 
 	
-	const BASE_URL = "https://stunt1.wuaze.com/";
+	/*const BASE_URL = "https://stunt1.wuaze.com/";
 
 	//Zona horaria
 
@@ -10,17 +10,22 @@
 	const DB_NAME = "if0_39818236_db_tienda";
 	const DB_USER = "if0_39818236";
 	const DB_PASSWORD = "h8CHkT172KCC";
-	const DB_CHARSET = "utf8";
+	const DB_CHARSET = "utf8";/*/
 
 	//Variables de hosting
-	/*
-	 const BASE_URL = "http://sql106.infinityfree.com/stunrider.free.nf";
-	 const DB_HOST = "sql106.infinityfree.com";
-	 const DB_NAME = "if0_39811723_XXX";
-	 const DB_USER = "if0_39811723";
-	 const DB_PASSWORD = "stuntrider1234";
-	 const DB_CHARSET = "utf8";
-*/
+	
+	const BASE_URL = "http://localhost/tienda_virtual";
+
+	//Zona horaria
+	date_default_timezone_set('America/Guatemala');
+
+	//Datos de conexión a Base de Datos
+	const DB_HOST = "localhost";
+	const DB_NAME = "db_tiendavirtual";
+	const DB_USER = "root";
+	const DB_PASSWORD = "";
+	const DB_CHARSET = "utf8";
+	 
 	//Para envío de correo
 	const ENVIRONMENT = 0; // Local: 0, Produccón: 1;
 
