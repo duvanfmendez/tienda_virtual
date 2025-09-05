@@ -69,6 +69,8 @@
                 <span class="app-menu__label">Pedidos</span>
             </a>
         </li>
+         <?php } ?>
+
 
          <?php if(!empty($_SESSION['permisos'][MDCONTACTOS]['r'])){ ?>
         <li>
