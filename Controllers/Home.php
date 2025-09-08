@@ -3,12 +3,17 @@
 	require_once("Models/TProducto.php");
 	class Home extends Controllers{
 		use TCategoria, TProducto;
+
+
+		// Constructor: inicia sesión y llama al constructor del controlador base
 		public function __construct()
 		{
 			parent::__construct();
 			session_start();
 		}
 
+
+		// Carga la página de inicio de la tienda virtual con contenido dinámico
 		public function home()
 		{
 			$pageContent = getPageRout('inicio');

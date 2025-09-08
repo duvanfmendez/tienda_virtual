@@ -1,5 +1,8 @@
 <?php 
 	class Nosotros extends Controllers{
+
+
+		// Constructor que inicializa la clase padre, la sesión y obtiene permisos de páginas
 		public function __construct()
 		{
 			parent::__construct();
@@ -7,6 +10,8 @@
 			getPermisos(MDPAGINAS);
 		}
 
+
+		// Función que carga la vista "Nosotros" con la información de la página
 		public function nosotros()
 		{
 			$pageContent = getPageRout('nosotros');

@@ -1,4 +1,5 @@
 <?php 
+// Constructor de la clase: inicia la sesión y establece los permisos necesarios para acceder a esta página
 	class Contacto extends Controllers{
 		public function __construct()
 		{
@@ -6,7 +7,7 @@
 			session_start();
 			getPermisos(MDPAGINAS);
 		}
-
+        // Función principal que carga la vista de la página de contacto
 		public function contacto()
 		{
 			$pageContent = getPageRout('contacto');

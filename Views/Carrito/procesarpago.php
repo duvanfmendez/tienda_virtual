@@ -6,8 +6,9 @@ $total = 0;
 foreach ($_SESSION['arrCarrito'] as $producto) {
 	$subtotal += $producto['precio'] * $producto['cantidad'];
 }
+// Suma el costo de envío al subtotal para obtener el total
 $total = $subtotal + COSTOENVIO;
-
+// Obtiene título y contenido de los términos y condiciones desde la configuración
 $tituloTerminos = !empty(getInfoPage(PTERMINOS)) ? getInfoPage(PTERMINOS)['titulo'] : "";
 $infoTerminos = !empty(getInfoPage(PTERMINOS)) ? getInfoPage(PTERMINOS)['contenido'] : "";
 
@@ -28,7 +29,7 @@ $infoTerminos = !empty(getInfoPage(PTERMINOS)) ? getInfoPage(PTERMINOS)['conteni
       });
     },
     onApprove: function(data, actions) {
-      // This function captures the funds from the transaction.
+      // Captura el pago y envía los datos a la tienda para procesar la venta
       return actions.order.capture().then(function(details) {
       		let base_url = "<?= base_url(); ?>";
 	        let dir = document.querySelector("#txtDireccion").value;

@@ -6,14 +6,18 @@ class Pedidos extends Controllers{
 	{
 		parent::__construct();
 		session_start();
+		// Verifica que el usuario haya iniciado sesión
 		if(empty($_SESSION['login']))
 		{
 			header('Location: '.base_url().'/login');
 			die();
 		}
+		// Obtiene los permisos del módulo de pedidos
 		getPermisos(MPEDIDOS);
 	}
 
+
+	// Carga la vista principal del módulo de pedidos
 	public function Pedidos()
 	{
 		if(empty($_SESSION['permisosMod']['r'])){
@@ -26,15 +30,19 @@ class Pedidos extends Controllers{
 		$this->views->getView($this,"pedidos",$data);
 	}
 
+
+	// Obtiene la lista de pedidos (formato JSON para DataTable)
 	public function getPedidos(){
 		if($_SESSION['permisosMod']['r']){
 			$idpersona = "";
 			if( $_SESSION['userData']['idrol'] == RCLIENTES ){
 				$idpersona = $_SESSION['userData']['idpersona'];
 			}
+			// Agrega botones de acciones (ver, editar, PDF, etc.) para cada pedido
 			$arrData = $this->model->selectPedidos($idpersona);
 			//dep($arrData);
-			for ($i=0; $i < count($arrData); $i++) {
+			for ($i=0; $i < count($arrData); $i++)
+				 {
 				$btnView = '';
 				$btnEdit = '';
 				$btnDelete = '';
@@ -69,6 +77,8 @@ class Pedidos extends Controllers{
 		die();
 	}
 
+
+	// Muestra el detalle de un pedido específico
 	public function orden($idpedido){
 		if(!is_numeric($idpedido)){
 			header("Location:".base_url().'/pedidos');
@@ -88,6 +98,8 @@ class Pedidos extends Controllers{
 		$this->views->getView($this,"orden",$data);
 	}
 
+
+	// Muestra una vista con los detalles de una transacción (solo lectura)
 	public function transaccion($transaccion){
 		if(empty($_SESSION['permisosMod']['r'])){
 			header("Location:".base_url().'/dashboard');
@@ -105,6 +117,8 @@ class Pedidos extends Controllers{
 		$this->views->getView($this,"transaccion",$data);
 	}
 
+
+	// Devuelve los datos HTML para mostrar el modal de reembolso
 	public function getTransaccion(string $transaccion){
 		if($_SESSION['permisosMod']['r'] and $_SESSION['userData']['idrol'] != RCLIENTES){
 			if($transaccion == ""){
@@ -124,6 +138,8 @@ class Pedidos extends Controllers{
 		die();
 	}
 
+
+	// Procesa la solicitud de reembolso para una transacción
 	public function setReembolso(){
 		if($_POST){
 			if($_SESSION['permisosMod']['u'] and $_SESSION['userData']['idrol'] != RCLIENTES){
@@ -144,6 +160,8 @@ class Pedidos extends Controllers{
 		die();
 	}
 
+
+	// Devuelve los datos de un pedido para mostrar en el modal de edición
 	public function getPedido(string $pedido){
 		if($_SESSION['permisosMod']['u'] and $_SESSION['userData']['idrol'] != RCLIENTES){
 			if($pedido == ""){
@@ -163,6 +181,9 @@ class Pedidos extends Controllers{
 		die();
 	}
 
+
+
+	// Guarda los cambios realizados a un pedido (estado, tipo de pago, transacción)
 	public function setPedido(){
 		if($_POST){
 			if($_SESSION['permisosMod']['u'] and $_SESSION['userData']['idrol'] != RCLIENTES){
@@ -200,8 +221,12 @@ class Pedidos extends Controllers{
 					}
 				}
 				echo json_encode($arrResponse,JSON_UNESCAPED_UNICODE);
+		
 			}
+			// Valida los datos y llama al modelo para actualizar el pedido
+				// Devuelve respuesta JSON según el resultado
 		}
+
 		die();
 	}
 }

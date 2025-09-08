@@ -1,6 +1,7 @@
 <?php 
 
 	class Contactos extends Controllers{
+		// Constructor de la clase: inicia la sesión, valida si el usuario está logueado y aplica permisos de acceso
 		public function __construct()
 		{
 			parent::__construct();
@@ -12,7 +13,9 @@
 			}
 			getPermisos(MDCONTACTOS);
 		}
-
+		
+		
+		// Carga la vista principal del módulo de contactos si el usuario tiene permiso de lectura
 		public function Contactos()
 		{
 			if(empty($_SESSION['permisosMod']['r'])){
@@ -24,7 +27,9 @@
 			$data['page_functions_js'] = "functions_contactos.js";
 			$this->views->getView($this,"contactos",$data);
 		}
-
+		
+		
+		// Obtiene todos los mensajes de contacto y les agrega opciones de acción (como ver detalle) según los permisos
 		public function getContactos(){
 			if($_SESSION['permisosMod']['r']){
 				$arrData = $this->model->selectContactos();
@@ -40,6 +45,8 @@
 			die();
 		}
 
+
+// Obtiene el detalle de un mensaje específico por ID, si el usuario tiene permisos
 		public function getMensaje($idmensaje){
 			if($_SESSION['permisosMod']['r']){
 				$idmensaje = intval($idmensaje);

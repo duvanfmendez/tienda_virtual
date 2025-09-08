@@ -2,6 +2,8 @@
 
 class Login extends Controllers
 {
+
+	// Constructor: inicia sesión, redirige si ya está logueado y llama al constructor padre
 	public function __construct()
 	{
 		session_start();
@@ -12,6 +14,8 @@ class Login extends Controllers
 		parent::__construct();
 	}
 
+
+	// Carga la vista de login con los datos básicos de la página
 	public function login()
 	{
 		$data['page_tag'] = "Login - Tienda Virtual";
@@ -22,12 +26,15 @@ class Login extends Controllers
 	}
 
 
-	////////////////////////////////////////////////////////////////////
-	///////////////////////////////////////////////////////////////////
-	////////////   registro de usuario desde el login /////////////////
+	// Registro de nuevos clientes desde el formulario de login
 	public function registroCliente()
 	{
 		if ($_POST) {
+			// Valida que no falten datos obligatorios
+            // Limpia y prepara datos para insertar un nuevo usuario
+            // Verifica si el correo ya está registrado
+            // Inserta el nuevo cliente en la base de datos
+            // Devuelve respuesta JSON con éxito o error
 			if (
 				empty($_POST['txtIdentificacion']) ||
 				empty($_POST['txtNombre']) ||
@@ -69,12 +76,18 @@ class Login extends Controllers
 		die();
 	}
 
-	//////////////////////////////////////
 
+    
+	// Login del usuario con email y contraseña
 	public function loginUser()
 	{
 		//dep($_POST);
 		if ($_POST) {
+			// Valida campos de email y password
+            // Limpia y encripta password
+            // Consulta al modelo para validar credenciales
+            // Si usuario existe y está activo, inicia sesión y crea variables de sesión
+            // Devuelve respuesta JSON con éxito o error
 			if (empty($_POST['txtEmail']) || empty($_POST['txtPassword'])) {
 				$arrResponse = array('status' => false, 'msg' => 'Error de datos');
 			} else {
@@ -102,6 +115,8 @@ class Login extends Controllers
 		die();
 	}
 
+
+	// Solicita restablecimiento de contraseña enviando email con token
 	public function resetPass()
 	{
 		if ($_POST) {
@@ -155,7 +170,9 @@ class Login extends Controllers
 		}
 		die();
 	}
+    
 
+	// Confirma usuario mediante email y token para mostrar formulario de cambio de contraseña
 	public function confirmUser(string $params)
 	{
 
@@ -182,6 +199,9 @@ class Login extends Controllers
 		die();
 	}
 
+
+
+	 // Cambia la contraseña del usuario tras validaciones
 	public function setPassword()
 	{
 
