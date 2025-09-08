@@ -26,6 +26,7 @@
     <script src="https://code.highcharts.com/highcharts.js"></script>
     <script src="https://code.highcharts.com/modules/exporting.js"></script>
     <script src="https://code.highcharts.com/modules/export-data.js"></script>
+    <script src="https://code.highcharts.com/modules/accessibility.js"></script>
     <script src="<?= media();?>/js/datepicker/jquery-ui.min.js"></script>
     <script type="text/javascript" src="<?= media();?>/js/functions_admin.js"></script>
     <script src="<?= media(); ?>/js/<?= $data['page_functions_js']; ?>"></script>

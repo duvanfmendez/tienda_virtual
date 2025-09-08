@@ -1,8 +1,5 @@
 <?php
-/**
- * DashboardModel (corregido)
- * Versión con validaciones para evitar warnings cuando las consultas devuelven NULL
- */
+
 class DashboardModel extends Mysql
 {
     public function __construct()
