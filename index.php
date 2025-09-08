@@ -3,8 +3,6 @@
     //error_reporting(E_ALL & ~E_NOTICE & ~E_DEPRECATED & ~E_WARNING);
     //ini_set('display_errors', 0);
 
-	error_reporting(E_ALL);
-	ini_set('display_errors', 1);
 
     require_once("Config/Config.php");
     require_once("Helpers/Helpers.php");
