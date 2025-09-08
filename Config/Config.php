@@ -1,9 +1,9 @@
 <?php
-//const BASE_URL = "https://abelosh.com/store";
+
 const BASE_URL = "http://localhost/tienda_virtual/";
 
 //Zona horaria
-date_default_timezone_set('America/Guatemala');
+
 
 //Datos de conexión a Base de Datos
 const DB_HOST = "localhost";
@@ -25,14 +25,14 @@ const CURRENCY = "USD";
 
 //Api PayPal
 //SANDBOX PAYPAL
-//const URLPAYPAL = "https://api-m.sandbox.paypal.com";
-//const IDCLIENTE = "AYcF2p8R-9gV_iUQ1AGdOz_6vOAc_jwwUSfCC4FQr6bWLT_7_d4mbDFrv1ulNnelVZcicrJwgwVwJIRF";
-//const SECRET = "EIhyWpvOuPhIBhTKG54dyTJ2HtFc-EbegpQgsyqQkHKqRzZTu0zzdHr9_M7A7u25hNG0o_NySx8wBuCt";
+const URLPAYPAL = "https://api-m.sandbox.paypal.com";
+const IDCLIENTE = "AdH6-sSdDI6aoCeLt8nEpslPh0GSH2qCP71Qw95TjE35-f2aXscI2Dv3XI04aBBHfWh7yWHqNWKukc5o";
+const SECRET = "EKfGJJyPYZcLIyTIVWia1X9DIR4tSojMONKv8xw9iKU1lVFBrH3qq7srfuOp3czvk-flyQyTWdOcurQf";
 
 //LIVE PAYPAL
-//const IDCLIENTE = "AWBtVubwv1loCQFkpbwVdxw3GN9v4wj8ieLQPCpm8i8v0iwHSO_wc1_fWPNqldrcrPh1RqQ1bIcZPKWD";
+//const IDCLIENTE = "ASSzBjKiaYf5RzPiUbNqMVbiA1NdATz8yYiu7OToFvinOqcSOF-TQ6VF5UNarABPAQH1PYRyu77XgK98";
 //const URLPAYPAL = "https://api-m.paypal.com";
-//const SECRET = "ELCYtuxTFft8kEuAhcg8jE7_Bi31BnMd8E4DilpsnnsgXnZRUA8AKiXHwOVSPVu7xFIDZYw_6AjXulyC";
+//const SECRET = "EI05lyjJQDX_OBJh3qiSmRoDjLjN_w5TC-YNMY5_PhtRQ7SobYlHKER_S0TRgF_YK6KHFkTqq1WT_89h";
 
 const NOMBRE_REMITENTE = "Soporte Stunt Riders";
 const EMAIL_REMITENTE  = "soportestuntriders@gmail.com";
@@ -40,17 +40,17 @@ const NOMBRE_EMPRESA   = "Stunt Riders";
 const WEB_EMPRESA      = "www.stuntriders.com"; // si la tienes
 
 
-const DESCRIPCION = "La mejor tienda en línea con artículos de moda.";
-const SHAREDHASH = "TiendaVirtual";
+const DESCRIPCION = "La mejor tienda De Motos De lujo.";
+const SHAREDHASH = "Stunt Riders";
 
 //Datos Empresa
-const DIRECCION = "Avenida las Américas Zona 13, Guatemala";
-const TELEMPRESA = "+(502)78787845";
-const WHATSAPP = "+50278787845";
-const EMAIL_EMPRESA = "info@abelosh.com";
-const EMAIL_PEDIDOS = "info@abelosh.com";
-const EMAIL_SUSCRIPCION = "info@abelosh.com";
-const EMAIL_CONTACTO = "info@abelosh.com";
+const DIRECCION = "Cra. 15 Bis #18A - 07 local 1, Los Mártires, Bogotá  D.C.";
+const TELEMPRESA = "+57 3169740070";
+const WHATSAPP = "+57 3169740070";
+const EMAIL_EMPRESA = "soportestuntriders@gmail.com";
+const EMAIL_PEDIDOS = "soportestuntriders@gmail.com";
+const EMAIL_SUSCRIPCION = "soportestuntriders@gmail.com";
+const EMAIL_CONTACTO = "soportestuntriders@gmail.com";
 
 const CAT_SLIDER = "1,2,3";
 const CAT_BANNER = "4,5,6";
@@ -93,11 +93,11 @@ const RCLIENTES = 3;
 const STATUS = array('Completo', 'Aprobado', 'Cancelado', 'Reembolsado', 'Pendiente', 'Entregado');
 
 //Productos por página
-const CANTPORDHOME = 8;
-const PROPORPAGINA = 4;
-const PROCATEGORIA = 4;
-const PROBUSCAR = 4;
+const CANTPORDHOME = 20;
+const PROPORPAGINA = 20;
+const PROCATEGORIA = 20;
+const PROBUSCAR = 8;
 
 //REDES SOCIALES
-const FACEBOOK = "https://www.facebook.com/abelosh";
-const INSTAGRAM = "https://www.instagram.com/febel24/";
+const FACEBOOK = "https://www.facebook.com/stuntriderscolombia/?locale=es_LA";
+const INSTAGRAM = "https://www.instagram.com/stuntriderscolombia?utm_source=ig_web_button_share_sheet&igsh=MXIwcnQ3ZmhyYXE3NQ==";
