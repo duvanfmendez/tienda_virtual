@@ -20,6 +20,11 @@ class ClientesModel extends Mysql
 		parent::__construct();
 	}	
 
+	/**
+	 * Inserta un nuevo cliente en la base de datos.
+	 * Verifica que el email o la identificación no estén registrados previamente.
+	 * @return int|string ID del nuevo cliente o "exist" si ya existe
+	 */
 	public function insertCliente(string $identificacion, string $nombre, string $apellido, int $telefono, string $email, string $password, int $tipoid, string $nit, string $nomFiscal, string $dirFiscal){
 
 		$this->strIdentificacion = $identificacion;
@@ -60,6 +65,11 @@ class ClientesModel extends Mysql
         return $return;
 	}
 
+	/**
+	 * Obtiene todos los clientes registrados con rol de cliente (RCLIENTES) y que estén activos.
+	 * @return array Lista de clientes
+	 */
+
 	public function selectClientes()
 	{
 		$sql = "SELECT idpersona,identificacion,nombres,apellidos,telefono,email_user,status 
@@ -69,6 +79,12 @@ class ClientesModel extends Mysql
 		return $request;
 	}
 
+	/**
+	 * Obtiene los datos de un cliente en específico.
+	 * Incluye información fiscal y fecha de registro.
+	 * @param int $idpersona
+	 * @return array Datos del cliente
+	 */
 	public function selectCliente(int $idpersona){
 		$this->intIdUsuario = $idpersona;
 		$sql = "SELECT idpersona,identificacion,nombres,apellidos,telefono,email_user,nit,nombrefiscal,direccionfiscal,status, DATE_FORMAT(datecreated, '%d-%m-%Y') as fechaRegistro 
@@ -77,6 +93,13 @@ class ClientesModel extends Mysql
 		$request = $this->select($sql);
 		return $request;
 	}
+
+	/**
+	 * Actualiza los datos de un cliente.
+	 * Si se proporciona un password, también lo actualiza; de lo contrario mantiene el anterior.
+	 * Verifica que no haya conflictos con identificación o correo de otro usuario.
+	 * @return string|bool "exist" si ya existe, o resultado de la actualización
+	 */
 
 	public function updateCliente(int $idUsuario, string $identificacion, string $nombre, string $apellido, int $telefono, string $email, string $password, string $nit, string $nomFiscal, string $dirFiscal){
 
@@ -129,6 +152,10 @@ class ClientesModel extends Mysql
 		return $request;
 	}
 
+	/**
+	 * Elimina (desactiva) un cliente cambiando su estado a 0.
+	 * @return bool Resultado de la actualización
+	 */
 	public function deleteCliente(int $intIdpersona)
 	{
 		$this->intIdUsuario = $intIdpersona;

@@ -5,11 +5,23 @@ class CsvModel extends Mysql {
         parent::__construct();
     }
 
+    /**
+     * Obtiene todas las personas registradas en la base de datos,
+     * ordenadas por su ID de forma ascendente.
+     * @return array Lista de personas
+     */
     public function selectPersonas() {
         $sql = "SELECT * FROM persona ORDER BY idpersona ASC";
         return $this->select_all($sql);
     }
 
+    /**
+     * Inserta una nueva persona en la base de datos desde un arreglo de datos.
+     * Valida que el array tenga exactamente 12 elementos y verifica cada campo.
+     * @param array $data Datos de la persona (12 elementos obligatorios)
+     * @return int ID de la persona insertada
+     * @throws Exception Si faltan campos obligatorios o son inválidos
+     */
     public function insertPersona($data) {
         // Validar que el array tenga exactamente 12 elementos
         if (count($data) !== 12) {
@@ -44,6 +56,9 @@ class CsvModel extends Mysql {
     }
 
     // Métodos de validación auxiliares
+    /**
+     * Valida que un campo obligatorio no esté vacío.
+     */
     private function validarCampo($valor, $nombreCampo) {
         if (empty(trim($valor))) {
             throw new Exception("El campo $nombreCampo es obligatorio");
@@ -51,10 +66,17 @@ class CsvModel extends Mysql {
         return trim($valor);
     }
 
+     /**
+     * Devuelve el valor si existe, o null si está vacío (para campos opcionales).
+     */
+
     private function validarCampoOpcional($valor) {
         return empty(trim($valor)) ? null : trim($valor);
     }
 
+     /**
+     * Valida que el email sea obligatorio y tenga formato correcto.
+     */
     private function validarEmail($email) {
         if (empty(trim($email))) {
             throw new Exception("El email es obligatorio");
@@ -65,10 +87,18 @@ class CsvModel extends Mysql {
         return trim($email);
     }
 
+    /**
+     * Genera un token aleatorio de 32 caracteres en hexadecimal.
+     */
+
     private function generarToken() {
         return bin2hex(random_bytes(16));
     }
 
+    /**
+     * Valida que el rol esté dentro de los permitidos,
+     * si no lo está, devuelve un rol por defecto (2).
+     */
     private function validarRol($rol) {
         $rolesPermitidos = [1, 2, 3]; // Ajusta según tus roles
         if (!in_array((int)$rol, $rolesPermitidos)) {
@@ -76,6 +106,10 @@ class CsvModel extends Mysql {
         }
         return (int)$rol;
     }
+
+    /**
+     * Valida que el estado solo pueda ser 0 o 1.
+     */
 
     private function validarEstado($estado) {
         return ($estado == 1) ? 1 : 0;

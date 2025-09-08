@@ -6,24 +6,46 @@
 			parent::__construct();
 		}
 
+		/**
+	 * Obtiene la cantidad total de usuarios activos.
+	 * @return int Número de usuarios
+	 */
 		public function cantUsuarios(){
 			$sql = "SELECT COUNT(*) as total FROM persona WHERE status != 0";
 			$request = $this->select($sql);
 			$total = $request['total']; 
 			return $total;
 		}
+
+		/**
+	 * Obtiene la cantidad total de clientes activos.
+	 * @return int Número de clientes
+	 */
 		public function cantClientes(){
 			$sql = "SELECT COUNT(*) as total FROM persona WHERE status != 0 AND rolid = ".RCLIENTES;
 			$request = $this->select($sql);
 			$total = $request['total']; 
 			return $total;
 		}
+
+		/**
+	 * Obtiene la cantidad total de productos activos.
+	 * @return int Número de productos
+	 */
+
 		public function cantProductos(){
 			$sql = "SELECT COUNT(*) as total FROM producto WHERE status != 0 ";
 			$request = $this->select($sql);
 			$total = $request['total']; 
 			return $total;
 		}
+
+		/**
+	 * Obtiene la cantidad total de pedidos.
+	 * Si el usuario logueado es cliente, filtra solo sus pedidos.
+	 * @return int Número de pedidos
+	 */
+
 		public function cantPedidos(){
 			$rolid = $_SESSION['userData']['idrol'];
 			$idUser = $_SESSION['userData']['idpersona'];
@@ -37,6 +59,12 @@
 			$total = $request['total']; 
 			return $total;
 		}
+
+		/**
+	 * Obtiene los últimos 10 pedidos registrados.
+	 * Si el usuario logueado es cliente, muestra solo sus pedidos.
+	 * @return array Lista de pedidos recientes
+	 */
 		public function lastOrders(){
 			$rolid = $_SESSION['userData']['idrol'];
 			$idUser = $_SESSION['userData']['idpersona'];
@@ -54,6 +82,14 @@
 			$request = $this->select_all($sql);
 			return $request;
 		}	
+
+		/**
+	 * Obtiene un resumen de pagos en un mes específico.
+	 * Incluye tipo de pago, cantidad de transacciones y monto total.
+	 * @param int $anio Año a consultar
+	 * @param int $mes Mes a consultar
+	 * @return array Datos de pagos del mes
+	 */
 		public function selectPagosMes(int $anio, int $mes){
 
 			$sql = "SELECT p.tipopagoid, tp.tipopago, COUNT(p.tipopagoid) as cantidad, SUM(p.monto) as total 
@@ -66,6 +102,15 @@
 			$arrData = array('anio' => $anio, 'mes' => $meses[intval($mes-1)], 'tipospago' => $pagos );
 			return $arrData;
 		}
+
+		/**
+	 * Obtiene las ventas de un mes, distribuidas por día.
+	 * Filtra solo pedidos con estado "Completo".
+	 * Si el usuario es cliente, solo muestra sus ventas.
+	 * @param int $anio Año a consultar
+	 * @param int $mes Mes a consultar
+	 * @return array Ventas del mes (totales y por día)
+	 */
 		public function selectVentasMes(int $anio, int $mes){
 			$rolid = $_SESSION['userData']['idrol'];
 			$idUser = $_SESSION['userData']['idpersona'];
@@ -95,6 +140,13 @@
 			$arrData = array('anio' => $anio, 'mes' => $meses[intval($mes-1)], 'total' => $totalVentasMes,'ventas' => $arrVentaDias );
 			return $arrData;
 		}
+
+		/**
+	 * Obtiene las ventas de todo un año, distribuidas por mes.
+	 * Solo incluye pedidos con estado "Completo".
+	 * @param int $anio Año a consultar
+	 * @return array Ventas anuales (por mes)
+	 */
 		public function selectVentasAnio(int $anio){
 			$arrMVentas = array();
 			$arrMeses = Meses();
@@ -121,6 +173,11 @@
 			$arrVentas = array('anio' => $anio, 'meses' => $arrMVentas);
 			return $arrVentas;
 		}
+
+		/**
+	 * Obtiene los últimos 10 productos activos registrados.
+	 * @return array Lista de productos
+	 */
 		public function productosTen(){
 			$sql = "SELECT * FROM producto WHERE status = 1 ORDER BY idproducto DESC LIMIT 1,10 ";
 			$request = $this->select_all($sql);

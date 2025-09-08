@@ -14,6 +14,11 @@
 			parent::__construct();
 		}
 
+		/**
+		 * Inserta una nueva categoría en la base de datos
+		 * Verifica que no exista una con el mismo nombre antes de registrar.
+		 * @return int|string ID del registro insertado o "exist" si ya existe
+		 */
 		public function inserCategoria(string $nombre, string $descripcion, string $portada, string $ruta, int $status){
 
 			$return = 0;
@@ -42,6 +47,10 @@
 			return $return;
 		}
 
+		/**
+		 * Obtiene todas las categorías activas (status != 0)
+		 * @return array Lista de categorías
+		 */
 		public function selectCategorias()
 		{
 			$sql = "SELECT * FROM categoria 
@@ -50,6 +59,11 @@
 			return $request;
 		}
 
+		/**
+		 * Obtiene una categoría específica por su ID
+		 * @param int $idcategoria
+		 * @return array Datos de la categoría
+		 */
 		public function selectCategoria(int $idcategoria){
 			$this->intIdcategoria = $idcategoria;
 			$sql = "SELECT * FROM categoria
@@ -58,6 +72,11 @@
 			return $request;
 		}
 
+		/**
+		 * Actualiza los datos de una categoría
+		 * Verifica que no exista otra con el mismo nombre antes de actualizar.
+		 * @return string|bool "exist" si ya existe, o resultado de la actualización
+		 */
 		public function updateCategoria(int $idcategoria, string $categoria, string $descripcion, string $portada, string $ruta, int $status){
 			$this->intIdcategoria = $idcategoria;
 			$this->strCategoria = $categoria;
@@ -84,6 +103,12 @@
 		    return $request;			
 		}
 
+
+		/**
+		 * Elimina (desactiva) una categoría cambiando su estado a 0
+		 * Solo si no está relacionada con productos.
+		 * @return string "ok", "error" o "exist"
+		 */
 		public function deleteCategoria(int $idcategoria)
 		{
 			$this->intIdcategoria = $idcategoria;
@@ -106,6 +131,12 @@
 			return $request;
 		}	
 
+		/**
+		 * Obtiene las categorías configuradas para mostrarse en el footer
+		 * Solo categorías activas (status = 1) y dentro de la constante CAT_FOOTER
+		 * Además, genera la URL completa de la portada.
+		 * @return array Lista de categorías del footer
+		 */
 		public function getCategoriasFooter(){
 			$sql = "SELECT idcategoria, nombre, descripcion, portada, ruta
 					FROM categoria WHERE  status = 1 AND idcategoria IN (".CAT_FOOTER.")";

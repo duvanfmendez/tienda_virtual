@@ -2,6 +2,12 @@
 
 class ContactosModel extends Mysql{
 
+	/**
+	 * Obtiene todos los contactos registrados.
+	 * Devuelve id, nombre, email y fecha formateada.
+	 * @return array Lista de contactos
+	 */
+
 	public function selectContactos()
 	{
 		$sql = "SELECT id, nombre, email, DATE_FORMAT(datecreated, '%d/%m/%Y') as fecha
@@ -10,6 +16,12 @@ class ContactosModel extends Mysql{
 		return $request;
 	}
 
+	/**
+	 * Obtiene el detalle de un mensaje de contacto específico.
+	 * Incluye nombre, email, fecha y el mensaje enviado.
+	 * @param int $idmensaje
+	 * @return array Datos del mensaje
+	 */
 	public function selectMensaje(int $idmensaje){
 		$sql = "SELECT id, nombre, email, DATE_FORMAT(datecreated, '%d/%m/%Y') as fecha, mensaje
 				FROM contacto WHERE id = {$idmensaje}";
