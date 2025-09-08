@@ -4,7 +4,7 @@
 		{
 			parent::__construct();
 			session_start();
-			//session_regenerate_id(true);
+// Verifica si el usuario está logueado y tiene permisos para manejar categorías.
 			if(empty($_SESSION['login']))
 			{
 				header('Location: '.base_url().'/login');
@@ -13,6 +13,12 @@
 			getPermisos(MCATEGORIAS);
 		}
 
+
+
+		/**
+		 * Carga la vista principal de categorías.
+		 * Verifica permisos de lectura y prepara los datos para mostrar la lista de categorías.
+		 */
 		public function Categorias()
 		{
 			if(empty($_SESSION['permisosMod']['r'])){
@@ -25,6 +31,13 @@
 			$this->views->getView($this,"categorias",$data);
 		}
 
+
+
+		/**
+		 * Registra o actualiza una categoría.
+		 * Valida los datos del formulario, maneja la imagen de portada
+		 * y guarda la información en la base de datos.
+		 */
 		public function setCategoria(){
 			if($_POST){
 				if(empty($_POST['txtNombre']) || empty($_POST['txtDescripcion']) || empty($_POST['listStatus']) )
@@ -95,6 +108,12 @@
 			die();
 		}
 
+
+
+		/** Obtiene todas las categorías registradas.
+		 * Genera los botones de acción (ver, editar, eliminar)
+		 * y devuelve los datos en formato JSON.
+		 */
 		public function getCategorias()
 		{
 			if($_SESSION['permisosMod']['r']){
@@ -127,6 +146,11 @@
 			die();
 		}
 
+
+		/**
+		 * Obtiene los datos de una categoría específica por ID.
+		 * Devuelve la información en formato JSON, incluyendo la URL de la portada.
+		 */
 		public function getCategoria($idcategoria)
 		{
 			if($_SESSION['permisosMod']['r']){
@@ -147,6 +171,12 @@
 			die();
 		}
 
+
+				/**
+		 * Elimina una categoría según su ID.
+		 * Valida que no tenga productos asociados antes de eliminarla.
+		 * Devuelve el resultado en formato JSON.
+		 */
 		public function delCategoria()
 		{
 			if($_POST){
@@ -167,6 +197,12 @@
 			die();
 		}
 
+
+		
+		/**
+		 * Obtiene las categorías activas para mostrarlas en un <select>.
+		 * Devuelve el listado en formato HTML <option>.
+		 */
 		public function getSelectCategorias(){
 			$htmlOptions = "";
 			$arrData = $this->model->selectCategorias();

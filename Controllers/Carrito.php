@@ -18,6 +18,12 @@
 			$data['page_name'] = "carrito";
 			$this->views->getView($this,"carrito",$data); 
 		}
+
+		/**
+		 * Procesa el flujo de pago de la compra.
+		 * Si no hay productos en el carrito, redirige al inicio.
+		 * De lo contrario, carga la vista de pago con los métodos disponibles.
+		 */
 		public function procesarpago()
 		{
 			if(empty($_SESSION['arrCarrito'])){ 
