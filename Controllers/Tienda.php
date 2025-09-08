@@ -18,8 +18,8 @@
 		// Muestra la página principal de la tienda con paginación de productos y listado de categorías
 		public function tienda()
 		{
-			$data['page_tag'] = NOMBRE_EMPESA;
-			$data['page_title'] = NOMBRE_EMPESA;
+			$data['page_tag'] = NOMBRE_EMPRESA;
+			$data['page_title'] = NOMBRE_EMPRESA;
 			$data['page_name'] = "tienda";
 			//$data['productos'] = $this->getProductosT();
 			$pagina = 1;
@@ -56,7 +56,7 @@
 				$total_paginas = ceil($total_registro / PROCATEGORIA);
 				$infoCategoria = $this->getProductosCategoriaT($idcategoria,$ruta,$desde,PROCATEGORIA);
 				$categoria = strClean($params);
-				$data['page_tag'] = NOMBRE_EMPESA." - ".$infoCategoria['categoria'];
+				$data['page_tag'] = NOMBRE_EMPRESA." - ".$infoCategoria['categoria'];
 				$data['page_title'] = $infoCategoria['categoria'];
 				$data['page_name'] = "categoria";
 				$data['productos'] = $infoCategoria['productos'];
@@ -82,7 +82,7 @@
 				if(empty($infoProducto)){
 					header("Location:".base_url());
 				}
-				$data['page_tag'] = NOMBRE_EMPESA." - ".$infoProducto['nombre'];
+				$data['page_tag'] = NOMBRE_EMPRESA." - ".$infoProducto['nombre'];
 				$data['page_title'] = $infoProducto['nombre'];
 				$data['page_name'] = "producto";
 				$data['producto'] = $infoProducto;
@@ -324,7 +324,7 @@
 							sendEmail($dataEmailOrden,"email_notificacion_orden");
 
 							$orden = openssl_encrypt($request_pedido, METHODENCRIPT, KEY);
-							$transaccion = openssl_encrypt($idtransaccionpaypal, METHODENCRIPT, KEY);
+							$transaccion = openssl_encrypt($idtransaccionpaypal ?? "N/A", METHODENCRIPT, KEY);
 							$arrResponse = array("status" => true, 
 											"orden" => $orden, 
 											"transaccion" =>$transaccion,
@@ -432,8 +432,8 @@
 			$total_paginas = ceil($total_registro / PROPORPAGINA);
 			$data['productos'] = $this->getProductosPage($desde,PROPORPAGINA);
 			//dep($data['productos']);exit;
-			$data['page_tag'] = NOMBRE_EMPESA;
-			$data['page_title'] = NOMBRE_EMPESA;
+			$data['page_tag'] = NOMBRE_EMPRESA;
+			$data['page_title'] = NOMBRE_EMPRESA;
 			$data['page_name'] = "tienda";
 			$data['pagina'] = $pagina;
 			$data['total_paginas'] = $total_paginas;
@@ -456,7 +456,7 @@
 			$desde = ($pagina-1) * PROBUSCAR;
 			$total_paginas = ceil($total_registro / PROBUSCAR);
 			$data['productos'] = $this->getProdSearch($busqueda,$desde,PROBUSCAR);
-			$data['page_tag'] = NOMBRE_EMPESA;
+			$data['page_tag'] = NOMBRE_EMPRESA;
 			$data['page_title'] = "Resultado de: ".$busqueda;
 			$data['page_name'] = "tienda";
 			$data['pagina'] = $pagina;
