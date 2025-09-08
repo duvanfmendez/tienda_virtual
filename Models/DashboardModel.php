@@ -7,6 +7,10 @@ class DashboardModel extends Mysql
         parent::__construct();
     }
 
+		/**
+	 * Obtiene la cantidad total de usuarios activos.
+	 * @return int Número de usuarios
+	 */
     // Cuenta usuarios activos
     public function cantUsuarios()
     {
@@ -18,6 +22,11 @@ class DashboardModel extends Mysql
         }
         return $total;
     }
+
+		/**
+	 * Obtiene la cantidad total de clientes activos.
+	 * @return int Número de clientes
+	 */
 
     // Cuenta clientes activos (rol clientes)
     public function cantClientes()
@@ -31,6 +40,12 @@ class DashboardModel extends Mysql
         return $total;
     }
 
+		/**
+	 * Obtiene la cantidad total de productos activos.
+	 * @return int Número de productos
+	 */
+
+
     // Cuenta productos activos
     public function cantProductos()
     {
@@ -42,6 +57,13 @@ class DashboardModel extends Mysql
         }
         return $total;
     }
+
+		/**
+	 * Obtiene la cantidad total de pedidos.
+	 * Si el usuario logueado es cliente, filtra solo sus pedidos.
+	 * @return int Número de pedidos
+	 */
+
 
     // Cuenta pedidos (si es cliente, filtra por su id)
     public function cantPedidos()
@@ -61,6 +83,12 @@ class DashboardModel extends Mysql
         }
         return $total;
     }
+
+		/**
+	 * Obtiene los últimos 10 pedidos registrados.
+	 * Si el usuario logueado es cliente, muestra solo sus pedidos.
+	 * @return array Lista de pedidos recientes
+	 */
 
     // 
     public function lastOrders()
@@ -85,6 +113,14 @@ class DashboardModel extends Mysql
         return $request;
     }
 
+		/**
+	 * Obtiene un resumen de pagos en un mes específico.
+	 * Incluye tipo de pago, cantidad de transacciones y monto total.
+	 * @param int $anio Año a consultar
+	 * @param int $mes Mes a consultar
+	 * @return array Datos de pagos del mes
+	 */
+
     // Pagos por tipo en un mes
     public function selectPagosMes(int $anio, int $mes)
     {
@@ -101,6 +137,15 @@ class DashboardModel extends Mysql
         $arrData = array('anio' => $anio, 'mes' => $meses[$mes - 1] ?? '', 'tipospago' => $pagos);
         return $arrData;
     }
+
+		/**
+	 * Obtiene las ventas de un mes, distribuidas por día.
+	 * Filtra solo pedidos con estado "Completo".
+	 * Si el usuario es cliente, solo muestra sus ventas.
+	 * @param int $anio Año a consultar
+	 * @param int $mes Mes a consultar
+	 * @return array Ventas del mes (totales y por día)
+	 */
 
     // Ventas por día en un mes
     public function selectVentasMes(int $anio, int $mes)
@@ -141,6 +186,13 @@ class DashboardModel extends Mysql
         return $arrData;
     }
 
+		/**
+	 * Obtiene las ventas de todo un año, distribuidas por mes.
+	 * Solo incluye pedidos con estado "Completo".
+	 * @param int $anio Año a consultar
+	 * @return array Ventas anuales (por mes)
+	 */
+
     // Ventas por mes en un año
     public function selectVentasAnio(int $anio)
     {
@@ -164,6 +216,11 @@ class DashboardModel extends Mysql
         $arrVentas = array('anio' => $anio, 'meses' => $arrMVentas);
         return $arrVentas;
     }
+
+		/**
+	 * Obtiene los últimos 10 productos activos registrados.
+	 * @return array Lista de productos
+	 */
 
     // Productos recientes (limitado)
     public function productosTen()
