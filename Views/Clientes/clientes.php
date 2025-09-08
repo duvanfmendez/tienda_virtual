@@ -1,5 +1,7 @@
 <?php 
     headerAdmin($data); 
+    
+// Incluye el modal para crear o editar clientes
     getModal('modalClientes',$data);
 ?>
   <main class="app-content">    

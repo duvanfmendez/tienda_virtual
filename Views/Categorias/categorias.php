@@ -1,5 +1,6 @@
 <?php 
     headerAdmin($data); 
+    // Incluir el modal para gestionar categorías, reutilizable para crear/editar
     getModal('modalCategorias',$data);
 ?>
     <main class="app-content">

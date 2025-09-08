@@ -1,10 +1,12 @@
 <?php 
 headerTienda($data);
+// Obtiene la imagen del banner y el ID de la página actual
 $banner = $data['page']['portada'];
 $idpagina = $data['page']['idpost'];
 
  ?>
 <script>
+	// Añade una clase CSS al header para un estilo específico
  	document.querySelector('header').classList.add('header-v4');
  </script>
 <!-- Title page -->
@@ -101,8 +103,10 @@ $idpagina = $data['page']['idpost'];
 	</div>
 </section>	
 <?php 
+// Muestra el contenido adicional de la página
 		echo $data['page']['contenido'];
 	}else{
+		// Si la página no está disponible, muestra mensaje de en construcción
 ?>
 <div>
 	<div class="container-fluid py-5 text-center" >
@@ -112,5 +116,6 @@ $idpagina = $data['page']['idpost'];
 </div>
 <?php 
 	}
+	// Carga el footer de la tienda
 	footerTienda($data);
 ?>
