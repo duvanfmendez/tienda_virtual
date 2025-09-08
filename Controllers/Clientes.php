@@ -5,7 +5,7 @@ class Clientes extends Controllers{
 	{
 		parent::__construct();
 		session_start();
-		//session_regenerate_id(true);
+		// Verifica si el usuario está logueado y asigna permisos de clientes
 		if(empty($_SESSION['login']))
 		{
 			header('Location: '.base_url().'/login');
@@ -27,6 +27,13 @@ class Clientes extends Controllers{
 	}
 
 
+
+		/**
+	 * Registra un nuevo cliente o actualiza uno existente.
+	 * Valida los datos recibidos del formulario, encripta la contraseña,
+	 * guarda la información en la base de datos y envía un correo de bienvenida
+	 * cuando se crea un nuevo cliente.
+	 */
 	public function setCliente(){
 		error_reporting(0);
 		if($_POST){
@@ -105,6 +112,12 @@ class Clientes extends Controllers{
 		die();
 	}
 
+
+		/**
+	 * Obtiene todos los clientes registrados.
+	 * Agrega los botones de acción (ver, editar, eliminar)
+	 * y devuelve la información en formato JSON.
+	 */
 	public function getClientes()
 	{
 		if($_SESSION['permisosMod']['r']){
@@ -129,6 +142,13 @@ class Clientes extends Controllers{
 		die();
 	}
 
+
+
+		/**
+	 * Obtiene los datos de un cliente específico por su ID.
+	 * Devuelve la información en formato JSON si existe,
+	 * de lo contrario indica que no se encontraron datos.
+	 */
 	public function getCliente($idpersona){
 		if($_SESSION['permisosMod']['r']){
 			$idusuario = intval($idpersona);
@@ -147,6 +167,13 @@ class Clientes extends Controllers{
 		die();
 	}
 
+
+
+		/**
+	 * Elimina un cliente de la base de datos según su ID.
+	 * Verifica permisos de eliminación antes de ejecutar la acción.
+	 * Devuelve el resultado en formato JSON.
+	 */
 	public function delCliente()
 	{
 		if($_POST){
