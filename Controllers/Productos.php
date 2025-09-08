@@ -9,9 +9,12 @@
 				header('Location: '.base_url().'/login');
 				die();
 			}
+			// Carga permisos para la sección de productos
 			getPermisos(MPRODUCTOS);
 		}
 
+
+		// Método para mostrar la vista principal de productos
 		public function Productos()
 		{
 			if(empty($_SESSION['permisosMod']['r'])){
@@ -24,6 +27,8 @@
 			$this->views->getView($this,"productos",$data);
 		}
 
+
+		// Obtiene el listado de productos y genera botones según permisos
 		public function getProductos()
 		{
 			if($_SESSION['permisosMod']['r']){
@@ -57,6 +62,8 @@
 			die();
 		}
 
+
+		// Inserta o actualiza un producto según el id enviado
 		public function setProducto(){
 			if($_POST){
 				if(empty($_POST['txtNombre']) || empty($_POST['txtCodigo']) || empty($_POST['listCategoria']) || empty($_POST['txtPrecio']) || empty($_POST['listStatus']) )
@@ -122,6 +129,8 @@
 			die();
 		}
 
+
+		// Obtiene un producto por su ID junto con sus imágenes
 		public function getProducto($idproducto){
 			if($_SESSION['permisosMod']['r']){
 				$idproducto = intval($idproducto);
@@ -145,6 +154,8 @@
 			die();
 		}
 
+
+		// Subir imagen de producto y guardar registro en BD
 		public function setImage(){
 			if($_POST){
 				if(empty($_POST['idproducto'])){
@@ -166,6 +177,8 @@
 			die();
 		}
 
+
+		// Eliminar imagen de producto (archivo + registro BD)
 		public function delFile(){
 			if($_POST){
 				if(empty($_POST['idproducto']) || empty($_POST['file'])){
@@ -188,6 +201,8 @@
 			die();
 		}
 
+
+		// Elimina un producto de la base de datos
 		public function delProducto(){
 			if($_POST){
 				if($_SESSION['permisosMod']['d']){

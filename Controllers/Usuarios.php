@@ -13,6 +13,8 @@
 			getPermisos(MUSUARIOS);
 		}
 
+
+		// Muestra la vista principal de usuarios si el usuario tiene permiso de lectura
 		public function Usuarios()
 		{
 			if(empty($_SESSION['permisosMod']['r'])){
@@ -25,6 +27,8 @@
 			$this->views->getView($this,"usuarios",$data);
 		}
 
+
+		// Inserta o actualiza un usuario en la base de datos según si se recibe un idUsuario o no
 		public function setUsuario(){
 			if($_POST){			
 				if(empty($_POST['txtIdentificacion']) || empty($_POST['txtNombre']) || empty($_POST['txtApellido']) || empty($_POST['txtTelefono']) || empty($_POST['txtEmail']) || empty($_POST['listRolid']) || empty($_POST['listStatus']) )
@@ -90,6 +94,8 @@
 			die();
 		}
 
+
+		// Obtiene el listado de usuarios, adapta su estado y opciones según permisos y datos de sesión
 		public function getUsuarios()
 		{
 			if($_SESSION['permisosMod']['r']){
@@ -134,6 +140,8 @@
 			die();
 		}
 
+
+		// Obtiene los datos de un usuario específico por su id, solo si tiene permiso de lectura
 		public function getUsuario($idpersona){
 			if($_SESSION['permisosMod']['r']){
 				$idusuario = intval($idpersona);
@@ -152,6 +160,8 @@
 			die();
 		}
 
+
+		// Elimina un usuario de la base de datos, si tiene permiso de eliminación
 		public function delUsuario()
 		{
 			if($_POST){
@@ -170,6 +180,8 @@
 			die();
 		}
 
+
+		// Carga la vista del perfil del usuario actual
 		public function perfil(){
 			$data['page_tag'] = "Perfil";
 			$data['page_title'] = "Perfil de usuario";
@@ -178,6 +190,8 @@
 			$this->views->getView($this,"perfil",$data);
 		}
 
+
+		// Actualiza los datos del perfil del usuario actual, incluida la contraseña si se envía
 		public function putPerfil(){
 			if($_POST){
 				if(empty($_POST['txtIdentificacion']) || empty($_POST['txtNombre']) || empty($_POST['txtApellido']) || empty($_POST['txtTelefono']) )
@@ -212,6 +226,8 @@
 			die();
 		}
 
+
+		// Actualiza los datos fiscales (NIT, nombre fiscal, dirección fiscal) del usuario actual
 		public function putDFical(){
 			if($_POST){
 				if(empty($_POST['txtNit']) || empty($_POST['txtNombreFiscal']) || empty($_POST['txtDirFiscal']) )
