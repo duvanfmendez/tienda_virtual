@@ -1,6 +1,8 @@
 <?php 
 
 	class Dashboard extends Controllers{
+
+		 // Constructor: valida que el usuario esté logueado y obtiene los permisos del módulo de dashboard
 		public function __construct()
 		{
 			parent::__construct();
@@ -14,6 +16,9 @@
 			getPermisos(MDASHBOARD);
 		}
 
+
+
+		// Función principal: carga la vista del dashboard con todas las métricas y estadísticas del sistema
 		public function dashboard()
 		{
 			$data['page_id'] = 2;
@@ -43,7 +48,9 @@
 				$this->views->getView($this,"dashboard",$data);
 			}
 		}
-
+    
+	
+		// Devuelve un script con datos de pagos del mes para graficar (desde un modal)
 		public function tipoPagoMes(){
 			if($_POST){
 				$grafica = "tipoPagoMes";
@@ -57,6 +64,9 @@
 				die();
 			}
 		}
+		    
+		
+		// Devuelve un script con datos de ventas por mes para graficar (desde un modal)
 		public function ventasMes(){
 			if($_POST){
 				$grafica = "ventasMes";
@@ -70,6 +80,9 @@
 				die();
 			}
 		}
+
+
+		    // Devuelve un script con datos de ventas por año para graficar (desde un modal)
 		public function ventasAnio(){
 			if($_POST){
 				$grafica = "ventasAnio";

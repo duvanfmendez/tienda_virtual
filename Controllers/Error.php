@@ -1,11 +1,16 @@
 <?php 
 
 	class Errors extends Controllers{
+		    
+		
+		// Constructor básico: llama al constructor del controlador padre
 		public function __construct()
 		{
 			parent::__construct();
 		}
-
+    
+	
+		// Muestra la página de error personalizada cuando no se encuentra una ruta
 		public function notFound()
 		{
 			$pageContent = getPageRout('not-found');
@@ -22,6 +27,7 @@
 	}
 
 
+// Instancia y ejecución inmediata del controlador de errores al final del archivo
 	$notFound = new Errors();
 	$notFound->notFound();
  ?>
