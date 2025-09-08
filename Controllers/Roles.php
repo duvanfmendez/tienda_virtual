@@ -14,6 +14,8 @@
 			getPermisos(MUSUARIOS);
 		}
 
+
+		// Muestra la vista principal de Roles si el usuario tiene permiso de lectura
 		public function Roles()
 		{
 			if(empty($_SESSION['permisosMod']['r'])){
@@ -27,6 +29,8 @@
 			$this->views->getView($this,"roles",$data);
 		}
 
+
+		// Obtiene la lista de roles, formatea su estado y agrega botones según permisos
 		public function getRoles()
 		{
 			if($_SESSION['permisosMod']['r']){
@@ -59,6 +63,8 @@
 			die();
 		}
 
+
+		// Devuelve las opciones <option> HTML para los roles activos, para usar en selects
 		public function getSelectRoles()
 		{
 			$htmlOptions = "";
@@ -74,6 +80,8 @@
 			die();		
 		}
 
+
+		// Obtiene los datos de un rol específico por su ID, retorna JSON con la info
 		public function getRol(int $idrol)
 		{
 			if($_SESSION['permisosMod']['r']){
@@ -93,6 +101,8 @@
 			die();
 		}
 
+
+		// Inserta o actualiza un rol según si se recibe ID o no, y devuelve JSON con resultado
 		public function setRol(){
 				$intIdrol = intval($_POST['idRol']);
 				$strRol =  strClean($_POST['txtNombre']);
@@ -132,6 +142,8 @@
 			die();
 		}
 
+
+		// Elimina un rol si no está asociado a usuarios, devuelve JSON con resultado
 		public function delRol()
 		{
 			if($_POST){

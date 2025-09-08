@@ -7,6 +7,8 @@
 			getPermisos(MDPAGINAS);
 		}
 
+
+		// Muestra la vista de sucursales si la página existe, de lo contrario redirige a la base
 		public function sucursales()
 		{
 			$pageContent = getPageRout('sucursales');
