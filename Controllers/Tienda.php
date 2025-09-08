@@ -14,6 +14,8 @@
 			$this->login = new LoginModel();
 		}
 
+
+		// Muestra la página principal de la tienda con paginación de productos y listado de categorías
 		public function tienda()
 		{
 			$data['page_tag'] = NOMBRE_EMPRESA;
@@ -33,6 +35,8 @@
 			$this->views->getView($this,"tienda",$data);
 		}
 
+
+		// Muestra los productos filtrados por categoría, con paginación y datos de la categoría
 		public function categoria($params){
 			if(empty($params)){
 				header("Location:".base_url());
@@ -64,6 +68,9 @@
 			}
 		}
 
+
+		   
+		// Muestra la información detallada de un producto específico y productos relacionados aleatorios
 		public function producto($params){
 			if(empty($params)){
 				header("Location:".base_url());
@@ -84,6 +91,9 @@
 			}
 		}
 
+
+
+		// Añade un producto al carrito de compras guardado en sesión, actualizando cantidades si existe
 		public function addCarrito(){
 			if($_POST){
 				//unset($_SESSION['arrCarrito']);exit;
@@ -140,6 +150,8 @@
 			die();
 		}
 
+
+		// Elimina un producto del carrito de compras y actualiza el resumen de la compra
 		public function delCarrito(){
 			if($_POST){
 				$arrCarrito = array();
@@ -179,6 +191,8 @@
 			die();
 		}
 
+
+		// Actualiza la cantidad de un producto en el carrito y recalcula totales
 		public function updCarrito(){
 			if($_POST){
 				$arrCarrito = array();
@@ -215,6 +229,8 @@
 			die();
 		}
 
+
+		// Registra un nuevo cliente en la base de datos y envía correo de bienvenida
 		public function registro(){
 			error_reporting(0);
 			if($_POST){
@@ -261,6 +277,8 @@
 			die();
 		}
 
+
+		// Procesa la venta: crea el pedido y detalle, maneja pagos contra entrega o PayPal, envía notificaciones por email
 		public function procesarVenta(){
 			if($_POST){
 				$idtransaccionpaypal = NULL;
@@ -384,6 +402,8 @@
 			die();
 		}
 
+
+		// Muestra la confirmación del pedido luego de la compra
 		public function confirmarpedido(){
 			if(empty($_SESSION['dataorden'])){
 				header("Location: ".base_url());
@@ -401,6 +421,8 @@
 			unset($_SESSION['dataorden']);
 		}
 
+
+		// Muestra la tienda con paginación según la página solicitada
 		public function page($pagina = null){
 
 			$pagina = is_numeric($pagina) ? $pagina : 1;
@@ -419,6 +441,8 @@
 			$this->views->getView($this,"tienda",$data);
 		}
 
+
+		// Busca productos por un término de búsqueda, con paginación y muestra resultados
 		public function search(){
 			if(empty($_REQUEST['s'])){
 				header("Location: ".base_url());
@@ -443,6 +467,8 @@
 
 		}
 
+
+		// Registra una suscripción al newsletter y envía correo de notificación
 		public function suscripcion(){
 			if($_POST){
 				$nombre = ucwords(strtolower(strClean($_POST['nombreSuscripcion'])));
@@ -466,6 +492,9 @@
 			die();
 		}
 
+
+
+		// Procesa el envío de mensajes de contacto y envía correo con la información recibida
 		public function contacto(){
 			if($_POST){
 				//dep($_POST);

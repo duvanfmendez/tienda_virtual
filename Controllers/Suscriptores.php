@@ -13,6 +13,8 @@
 			getPermisos(MSUSCRIPTORES);
 		}
 
+
+		// Carga la vista principal de suscriptores con sus configuraciones y permisos
 		public function Suscriptores()
 		{
 			if(empty($_SESSION['permisosMod']['r'])){
@@ -25,6 +27,8 @@
 			$this->views->getView($this,"suscriptores",$data);
 		}
 
+
+		// Obtiene todos los suscriptores y los devuelve en formato JSON
 		public function getSuscriptores(){
 			if($_SESSION['permisosMod']['r']){
 				$arrData = $this->model->selectSuscriptores();

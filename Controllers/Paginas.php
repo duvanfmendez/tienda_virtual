@@ -4,6 +4,8 @@ class Paginas extends Controllers{
 	{
 		parent::__construct();
 		session_start();
+
+		// Redirige si no hay sesión activa
 		if(empty($_SESSION['login']))
 		{
 			header('Location: '.base_url().'/login');
@@ -12,6 +14,8 @@ class Paginas extends Controllers{
 		getPermisos(MDPAGINAS);
 	}
 
+
+	// Muestra la vista principal de las páginas (listado)
 	public function paginas()
 	{
 		if(empty($_SESSION['permisosMod']['r'])){
@@ -24,6 +28,8 @@ class Paginas extends Controllers{
 		$this->views->getView($this,"paginas",$data);
 	}
 
+
+	// Carga la vista para editar una página específica
 	public function editar($idpost){
 		if(empty($_SESSION['permisosMod']['u'])){
 			header("Location:".base_url().'/dashboard');
@@ -49,6 +55,8 @@ class Paginas extends Controllers{
 		die();
 	}
 
+
+	// Carga la vista para crear una nueva página
 	public function crear(){
 		if(empty($_SESSION['permisosMod']['w'])){
 			header("Location:".base_url().'/dashboard');
@@ -63,6 +71,8 @@ class Paginas extends Controllers{
 		die();
 	}
 
+
+	// Devuelve todas las páginas en formato JSON para cargar en el datatable
 	public function getPaginas(){
 		if($_SESSION['permisosMod']['r']){
 			$arrData = $this->model->selectPaginas();
@@ -89,6 +99,8 @@ class Paginas extends Controllers{
 		die();
 	}
 
+
+	// Guarda o actualiza los datos de una página
 	public function setPagina(){
 		if($_POST){
 			//dep($_POST);
@@ -160,6 +172,8 @@ class Paginas extends Controllers{
 		die();
 	}
 
+
+	// Elimina una página específica
 	public function delPagina(){
 		if($_POST){
 			if($_SESSION['permisosMod']['d']){
