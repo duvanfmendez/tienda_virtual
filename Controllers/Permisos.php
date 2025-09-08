@@ -6,7 +6,11 @@
 			parent::__construct();
 		}
 
+
+		// Obtiene los permisos asignados a un rol específico y genera la vista modal para editarlos
 		public function getPermisosRol(int $idrol)
+		// Valida que el ID de rol sea válido y obtiene los módulos, permisos y datos del rol
+		// Arma un array con los permisos y genera el modal para mostrar en la interfaz
 		{
 			$rolid = intval($idrol);
 			if($rolid > 0)
@@ -42,6 +46,8 @@
 			die();
 		}
 
+
+		// Recibe por POST los permisos asignados a un rol y los guarda en la base de datos
 		public function setPermisos()
 		{
 			if($_POST)
