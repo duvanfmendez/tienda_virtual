@@ -70,6 +70,7 @@ document.addEventListener('DOMContentLoaded', function(){
 					if(request.readyState != 4) return;
 
 					if(request.status == 200){
+						console.log(request.responseText);	
 						var objData = JSON.parse(request.responseText);
 						if(objData.status)
 						{

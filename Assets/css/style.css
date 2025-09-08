@@ -264,9 +264,3 @@
     color: #dc3545;
     font-size: 42px;
 }
-
-.login-form,
-.forget-form,
-.register-form {
-  transition: all 0.3s ease-in-out;
-}

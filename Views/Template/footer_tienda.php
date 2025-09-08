@@ -24,7 +24,7 @@
 
 				<div class="col-sm-6 col-lg-4 p-b-50">
 					<h4 class="stext-301 cl0 p-b-30">
-						Contacto
+						Cotacto
 					</h4>
 
 					<p class="stext-107 cl7 size-201">
@@ -48,12 +48,36 @@
 					</div>
 				</div>
 
+				<div class="col-sm-6 col-lg-4 p-b-50">
+					<h4 class="stext-301 cl0 p-b-30">
+						Suscríbete
+					</h4>
 
+					<form id="frmSuscripcion" name="frmSuscripcion">
+						<div class="wrap-input1 w-full p-b-4">
+							<input class="input1 bg-none plh1 stext-107 cl7" type="text" id="nombreSuscripcion" name="nombreSuscripcion" placeholder="Nombre completo" required>
+							<div class="focus-input1 trans-04"></div>
+						</div>
+						<br>
+						<div class="wrap-input1 w-full p-b-4">
+							<input class="input1 bg-none plh1 stext-107 cl7" type="email" id="emailSuscripcion" name="emailSuscripcion" placeholder="email@example.com" required >
+							<div class="focus-input1 trans-04"></div>
+						</div>
+
+						<div class="p-t-18">
+							<button class="flex-c-m stext-101 cl0 size-103 bg1 bor1 hov-btn2 p-lr-15 trans-04">
+								Suscribirme
+							</button>
+						</div>
+					</form>
+				</div>
 			</div>
 
 			<div class="p-t-40">
 				<p class="stext-107 cl6 txt-center">
-					
+					<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+					<?= NOMBRE_EMPESA; ?> | <?= WEB_EMPRESA; ?> | <a href="https://colorlib.com" target="_blank">Colorlib</a>
+					<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
 				</p>
 			</div>
 		</div>
@@ -99,25 +123,6 @@
 	<script src="<?= media();?>/js/functions_admin.js"></script>
 	<script src="<?= media() ?>/js/functions_login.js"></script>
 	<script src="<?= media() ?>/tienda/js/functions.js"></script>
-
-<!--===============================================================================================-->
-
-	<script type="text/javascript">
-  (function(d, t) {
-      var v = d.createElement(t), s = d.getElementsByTagName(t)[0];
-      v.onload = function() {
-        window.voiceflow.chat.load({
-          verify: { projectID: '686efa97a5186ae08122a512' },
-          url: 'https://general-runtime.voiceflow.com',
-          versionID: 'production',
-          voice: {
-            url: "https://runtime-api.voiceflow.com"
-          }
-        });
-      }
-      v.src = "https://cdn.voiceflow.com/widget-next/bundle.mjs"; v.type = "text/javascript"; s.parentNode.insertBefore(v, s);
-  })(document, 'script');
-</script>
 
 </body>
 </html>
