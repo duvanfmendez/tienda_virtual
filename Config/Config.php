@@ -1,15 +1,17 @@
 <?php 
 	
-	/*const BASE_URL = "https://stunt1.wuaze.com/";
+	///*const BASE_URL = "https://stunt1.wuaze.com/";
+
+	const BASE_URL = "http://localhost/tienda_virtual/";
 
 	//Zona horaria
 
 
 	//Datos de conexión a Base de Datos
-	const DB_HOST = "sql310.infinityfree.com";
-	const DB_NAME = "if0_39818236_db_tienda";
-	const DB_USER = "if0_39818236";
-	const DB_PASSWORD = "h8CHkT172KCC";
+	const DB_HOST = "localhost";
+	const DB_NAME = "db_tiendavirtual";
+	const DB_USER = "root";
+	const DB_PASSWORD = "";
 	const DB_CHARSET = "utf8";/*/
 
 	//Variables de hosting
