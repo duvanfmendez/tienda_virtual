@@ -62,7 +62,7 @@ $infoTerminos = !empty(getInfoPage(PTERMINOS)) ? getInfoPage(PTERMINOS)['conteni
 				?>
 					<!-- Si está logueado -->
 					<div>
-						<label for="tipopago">Dirección de envío</label>
+						<label for="txtDireccion">Dirección de envío</label>
 						<div class="bor8 bg0 m-b-12">
 							<input id="txtDireccion" class="stext-111 cl8 plh3 size-111 p-lr-15" type="text" name="state" placeholder="Dirección de envío">
 						</div>
@@ -205,7 +205,7 @@ $infoTerminos = !empty(getInfoPage(PTERMINOS)) ? getInfoPage(PTERMINOS)['conteni
 									</select>
 									<div class="dropDownSelect2"></div>
 								</div>
-								<br>
+								<br>	
 								<button type="submit" id="btnComprar" class="flex-c-m stext-101 cl0 size-116 bg3 bor14 hov-btn3 p-lr-15 trans-04 pointer">Procesar pedido</button>
 							</div>
 							<div id="divpaypal">
@@ -223,15 +223,18 @@ $infoTerminos = !empty(getInfoPage(PTERMINOS)) ? getInfoPage(PTERMINOS)['conteni
 </div>
 
 <!-- SDK de PayPal -->
-<script src="https://www.paypal.com/sdk/js?client-id=<?= IDCLIENTE ?>&currency=<?= CURRENCY ?>"></script>
+<!-- SDK de PayPal (LIVE) -->
+<script src="https://www.paypal.com/sdk/js?client-id=<?= IDCLIENTE ?>&currency=<?= CURRENCY ?>" 
+        onload="initPayPalButton()"></script>
+
 <script>
-document.addEventListener("DOMContentLoaded", function(){
+function initPayPalButton(){
   if(document.querySelector("#paypal-btn-container")){
     paypal.Buttons({
       createOrder: function(data, actions) {
         return actions.order.create({
           purchase_units: [{
-            amount: { value: <?= $total; ?> },
+            amount: { value: "<?= $total; ?>" },
             description: "Compra de artículos en <?= NOMBRE_EMPRESA ?> por <?= SMONEY.$total ?> ",
           }]
         });
@@ -268,9 +271,13 @@ document.addEventListener("DOMContentLoaded", function(){
       }
     }).render('#paypal-btn-container');
   }
-});
+}
 </script>
+
+
 
 <?php 
 footerTienda($data);
 ?>
+
+
