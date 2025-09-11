@@ -24,7 +24,7 @@
 
 				<div class="col-sm-6 col-lg-4 p-b-50">
 					<h4 class="stext-301 cl0 p-b-30">
-						Cotacto
+						Contacto
 					</h4>
 
 					<p class="stext-107 cl7 size-201">
@@ -46,30 +46,6 @@
 							<i class="fab fa-whatsapp"></i>
 						</a>
 					</div>
-				</div>
-
-				<div class="col-sm-6 col-lg-4 p-b-50">
-					<h4 class="stext-301 cl0 p-b-30">
-						Suscríbete
-					</h4>
-
-					<form id="frmSuscripcion" name="frmSuscripcion">
-						<div class="wrap-input1 w-full p-b-4">
-							<input class="input1 bg-none plh1 stext-107 cl7" type="text" id="nombreSuscripcion" name="nombreSuscripcion" placeholder="Nombre completo" required>
-							<div class="focus-input1 trans-04"></div>
-						</div>
-						<br>
-						<div class="wrap-input1 w-full p-b-4">
-							<input class="input1 bg-none plh1 stext-107 cl7" type="email" id="emailSuscripcion" name="emailSuscripcion" placeholder="email@example.com" required >
-							<div class="focus-input1 trans-04"></div>
-						</div>
-
-						<div class="p-t-18">
-							<button class="flex-c-m stext-101 cl0 size-103 bg1 bor1 hov-btn2 p-lr-15 trans-04">
-								Suscribirme
-							</button>
-						</div>
-					</form>
 				</div>
 			</div>
 

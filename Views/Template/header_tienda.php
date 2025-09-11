@@ -158,11 +158,7 @@
 							</li>
 							
 							<li>
-								<a href="<?= base_url(); ?>/nosotros">Nosotro</a>
-							</li>
-
-							<li>
-								<a href="<?= base_url(); ?>/sucursales">Sucursales</a>
+								<a href="<?= base_url(); ?>/nosotros">Nosotros</a>
 							</li>
 
 							<li>
@@ -266,10 +262,6 @@
 
 				<li>
 					<a href="<?= base_url(); ?>/nosotros">Nosotros</a>
-				</li>
-
-				<li>
-					<a href="<?= base_url(); ?>/sucursales">Sucursales</a>
 				</li>
 
 				<li>
