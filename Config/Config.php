@@ -25,14 +25,14 @@ const CURRENCY = "USD";
 
 //Api PayPal
 //SANDBOX PAYPAL
-const URLPAYPAL = "https://api-m.sandbox.paypal.com";
-const IDCLIENTE = "AdH6-sSdDI6aoCeLt8nEpslPh0GSH2qCP71Qw95TjE35-f2aXscI2Dv3XI04aBBHfWh7yWHqNWKukc5o";
-const SECRET = "EKfGJJyPYZcLIyTIVWia1X9DIR4tSojMONKv8xw9iKU1lVFBrH3qq7srfuOp3czvk-flyQyTWdOcurQf";
+//const URLPAYPAL = "https://api-m.sandbox.paypal.com";
+//const IDCLIENTE = "AdH6-sSdDI6aoCeLt8nEpslPh0GSH2qCP71Qw95TjE35-f2aXscI2Dv3XI04aBBHfWh7yWHqNWKukc5o";
+//const SECRET = "EKfGJJyPYZcLIyTIVWia1X9DIR4tSojMONKv8xw9iKU1lVFBrH3qq7srfuOp3czvk-flyQyTWdOcurQf";
 
 //LIVE PAYPAL
-//const IDCLIENTE = "ASSzBjKiaYf5RzPiUbNqMVbiA1NdATz8yYiu7OToFvinOqcSOF-TQ6VF5UNarABPAQH1PYRyu77XgK98";
-//const URLPAYPAL = "https://api-m.paypal.com";
-//const SECRET = "EI05lyjJQDX_OBJh3qiSmRoDjLjN_w5TC-YNMY5_PhtRQ7SobYlHKER_S0TRgF_YK6KHFkTqq1WT_89h";
+const IDCLIENTE = "ASSzBjKiaYf5RzPiUbNqMVbiA1NdATz8yYiu7OToFvinOqcSOF-TQ6VF5UNarABPAQH1PYRyu77XgK98";
+const URLPAYPAL = "https://api-m.paypal.com";
+const SECRET = "EI05lyjJQDX_OBJh3qiSmRoDjLjN_w5TC-YNMY5_PhtRQ7SobYlHKER_S0TRgF_YK6KHFkTqq1WT_89h";
 
 const NOMBRE_REMITENTE = "Soporte Stunt Riders";
 const EMAIL_REMITENTE  = "soportestuntriders@gmail.com";

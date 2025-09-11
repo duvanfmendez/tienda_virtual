@@ -23,7 +23,7 @@ $infoTerminos = !empty(getInfoPage(PTERMINOS)) ? getInfoPage(PTERMINOS)['conteni
           amount: {
             value: <?= $total; ?>
           },
-          description: "Compra de artículos en <?= NOMBRE_EMPESA ?> por <?= SMONEY.$total ?> ",
+          description: "Compra de artículos en <?= NOMBRE_EMPRESA ?> por <?= SMONEY.$total ?> ",
         }]
       });
     },

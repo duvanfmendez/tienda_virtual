@@ -43,7 +43,7 @@ $detalle = $data['pedido']['detalle'];
 				</td>
 				<td width="33.33%">
 					<div class="text-center">
-						<h4><strong><?= NOMBRE_EMPESA ?></strong></h4>
+						<h4><strong><?= NOMBRE_EMPRESA ?></strong></h4>
 						<p>
 							<?= DIRECCION ?> <br>
 							Teléfono: <?= TELEMPRESA ?> <br>
