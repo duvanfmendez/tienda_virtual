@@ -24,7 +24,7 @@
   </section>
   <section class="login-content">
     <div class="logo">
-      <h1><?= $data['page_title']; ?></h1>
+      <h1><img src="Assets/images/uploads/uploads/logo.jpg"></h1>
     </div>
     <div class="login-box">
       <div id="divLoading" style="display: none;">
@@ -62,44 +62,47 @@
           <label class="control-label">EMAIL</label>
           <input id="txtEmailReset" name="txtEmailReset" class="form-control" type="email" placeholder="Email">
         </div>
-        <div class="form-group btn-container">
-          <button type="submit" class="btn btn-primary btn-block"><i class="fa fa-unlock fa-lg fa-fw"></i>REINICIAR</button>
-        </div>
         <div class="form-group mt-3 text-center">
           <p class="semibold-text mb-0">
             <a href="#" data-toggle="flip" data-target="login-form"><i class="fa fa-angle-left fa-fw"></i> Volver a iniciar sesión</a>
           </p>
         </div>
+        <br>
+        <div class="form-group btn-container">
+          <button type="submit" class="btn btn-primary btn-block"><i class="fa fa-unlock fa-lg fa-fw"></i>REINICIAR</button>
+        </div>
       </form>
+      
+      
 
       <!-- FORMULARIO DE REGISTRO DE CLIENTE -->
       <form id="formRegister" name="formRegister" class="register-form d-none" action="" style="margin: 20px;">
         <h3 class="login-head"><i class="fa fa-user-plus fa-lg fa-fw"></i> REGISTRARSE</h3>
 
         <div class="row">
-          <div class="form-group col-md-6">
+          <div class="form-group">
             <label for="txtIdentificacion">Identificación</label>
             <input type="text" class="form-control" id="txtIdentificacion" name="txtIdentificacion" placeholder="Número de documento" required onkeypress="return controlTag(event);">
           </div>
-          <div class="form-group col-md-6">
+          <div class="form-group">
             <label for="txtNombre">Nombres</label>
             <input type="text" class="form-control" id="txtNombre" name="txtNombre" placeholder="Ingresa tus nombres" required>
           </div>
 
-          <div class="form-group col-md-6">
+          <div class="form-group">
             <label for="txtApellido">Apellidos</label>
             <input type="text" class="form-control" id="txtApellido" name="txtApellido" placeholder="Ingresa tus apellidos" required>
           </div>
-          <div class="form-group col-md-6">
+          <div class="form-group">
             <label for="txtTelefono">Teléfono</label>
             <input type="text" class="form-control" id="txtTelefono" name="txtTelefono" placeholder="Número de contacto" required onkeypress="return controlTag(event);">
           </div>
 
-          <div class="form-group col-md-6">
+          <div class="form-group">
             <label for="txtEmailCliente">Correo electrónico</label>
             <input type="email" class="form-control" id="txtEmailCliente" name="txtEmailCliente" placeholder="Ejemplo: correo@email.com" required>
           </div>
-          <div class="form-group col-md-6">
+          <div class="form-group">
             <label for="txtPasswordCliente">Contraseña</label>
             <input type="password" class="form-control" id="txtPasswordCliente" name="txtPasswordCliente" placeholder="Crea una contraseña" required>
           </div>
