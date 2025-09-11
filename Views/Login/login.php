@@ -1,5 +1,18 @@
 <!DOCTYPE html>
 <html lang="es">
+<<<<<<< Updated upstream
+=======
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="author" content="Abel OSH">
+    <meta name="theme-color" content="#009688">
+    <link rel="shortcut icon" href="<?= media();?>/images/favicon.ico">
+    <!-- Main CSS-->
+    <link rel="stylesheet" type="text/css" href="<?= media();?>/css/main.css">
+    <link rel="stylesheet" type="text/css" href="<?= media();?>/css/login.css">
+>>>>>>> Stashed changes
 
 <head>
   <meta charset="utf-8">
