@@ -53,6 +53,58 @@
 			die();
 		}
 
+
+			// Registro de nuevos clientes desde el formulario de login
+	public function registroCliente()
+	{
+		if ($_POST) {
+			// Valida que no falten datos obligatorios
+            // Limpia y prepara datos para insertar un nuevo usuario
+            // Verifica si el correo ya está registrado
+            // Inserta el nuevo cliente en la base de datos
+            // Devuelve respuesta JSON con éxito o error
+			if (
+				empty($_POST['txtIdentificacion']) ||
+				empty($_POST['txtNombre']) ||
+				empty($_POST['txtApellido']) ||
+				empty($_POST['txtTelefono']) ||
+				empty($_POST['txtEmail']) ||
+				empty($_POST['txtPassword'])
+			) {
+				$arrResponse = array("status" => false, "msg" => 'Todos los campos son obligatorios.');
+			} else {
+				$intIdentificacion = intval(strClean($_POST['txtIdentificacion']));
+				$strNombre = ucwords(strClean($_POST['txtNombre']));
+				$strApellido = ucwords(strClean($_POST['txtApellido']));
+				$intTelefono = intval(strClean($_POST['txtTelefono']));
+				$strEmail = strtolower(strClean($_POST['txtEmail']));
+				$strPassword = hash("SHA256", $_POST['txtPassword']);
+				$intTipoId = 4;
+				$status = 1;
+
+				$sql = "SELECT * FROM persona WHERE email_user = '{$strEmail}'";
+				$exist = $this->model->select_all($sql);
+				if (!empty($exist)) {
+					$arrResponse = array("status" => false, "msg" => 'El correo ya está registrado.');
+				} else {
+					$query_insert = "INSERT INTO persona(identificacion,nombres,apellidos,telefono,email_user,password,rolid,status) VALUES(?,?,?,?,?,?,?,?)";
+					$arrData = array($intIdentificacion, $strNombre, $strApellido, $intTelefono, $strEmail, $strPassword, $intTipoId, $status);
+					$request_insert = $this->model->insert($query_insert, $arrData);
+
+					if ($request_insert > 0) {
+						$arrResponse = array("status" => true, "msg" => 'Registro completado con éxito.');
+					} else {
+						$arrResponse = array("status" => false, "msg" => 'No se pudo completar el registro.');
+					}
+				}
+			}
+
+			echo json_encode($arrResponse, JSON_UNESCAPED_UNICODE);
+		}
+		die();
+	}
+	
+
 		public function resetPass(){
     if($_POST){
         error_reporting(E_ALL);
