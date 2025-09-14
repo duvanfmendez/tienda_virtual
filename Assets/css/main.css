@@ -11760,8 +11760,8 @@ fieldset[disabled] .datepicker table tr td span.active.disabled:hover.focus {
   -webkit-background-clip: padding-box;
   -moz-background-clip: padding;
   background-clip: padding-box;
-  *border-right-width: 2px;
-  *border-bottom-width: 2px;
+  border-right-width: 2px;
+  border-bottom-width: 2px;
   color: #333333;
   font-size: 13px;
   line-height: 1.42857143;
@@ -14895,7 +14895,7 @@ be a descendant of the grid when it is being dragged.
   .app-content {
     margin: 0;
     padding: 0;
-    background-color: #fff;
+    background-color: #f1a417;
   }
 }
 
@@ -14922,7 +14922,7 @@ be a descendant of the grid when it is being dragged.
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  background-color: #009688;
+  background-color: #000000;
   z-index: 1030;
   padding-right: 15px;
 }
@@ -14992,8 +14992,8 @@ be a descendant of the grid when it is being dragged.
 }
 
 .app-sidebar__toggle:focus, .app-sidebar__toggle:hover {
-  color: #fff;
-  background-color: #00635a;
+  color: #f1f1f1;
+  background-color: #FF0000;
   text-decoration: none;
 }
 
@@ -15019,15 +15019,16 @@ be a descendant of the grid when it is being dragged.
   display: block;
   padding: 15px;
   line-height: 20px;
-  color: #fff;
+  color: #f1f1f1;
   -webkit-transition: background-color 0.3s ease;
   -o-transition: background-color 0.3s ease;
   transition: background-color 0.3s ease;
 }
 
 .app-nav__item:hover, .app-nav__item:focus {
-  background: rgba(0, 0, 0, 0.1);
-  color: #f6f6f6;
+  color: #f1f1f1;
+  background-color: #FF0000;
+  text-decoration: none;
 }
 
 .app-search {
@@ -15036,7 +15037,7 @@ be a descendant of the grid when it is being dragged.
   display: -ms-flexbox;
   display: flex;
   -ms-flex-item-align: center;
-      align-self: center;
+  align-self: center;
   margin-right: 15px;
   padding: 10px 0;
 }
@@ -15059,23 +15060,23 @@ be a descendant of the grid when it is being dragged.
 }
 
 .app-search__input::-webkit-input-placeholder {
-  color: rgba(0, 0, 0, 0.4);
+  color: rgba(220, 20, 60);
 }
 
 .app-search__input::-moz-placeholder {
-  color: rgba(0, 0, 0, 0.4);
+  color: rgba(220, 20, 60);
 }
 
 .app-search__input:-ms-input-placeholder {
-  color: rgba(0, 0, 0, 0.4);
+  color: rgba(220, 20, 60);
 }
 
 .app-search__input::-ms-input-placeholder {
-  color: rgba(0, 0, 0, 0.4);
+  color: rgba(220, 20, 60);
 }
 
 .app-search__input::placeholder {
-  color: rgba(0, 0, 0, 0.4);
+  color: rgba(220, 20, 60);
 }
 
 .app-search__button {
@@ -15085,7 +15086,7 @@ be a descendant of the grid when it is being dragged.
   bottom: 10px;
   padding: 0 10px;
   border: 0;
-  color: rgba(0, 0, 0, 0.8);
+  color: rgba(220, 20, 60);
   background: none;
   cursor: pointer;
 }

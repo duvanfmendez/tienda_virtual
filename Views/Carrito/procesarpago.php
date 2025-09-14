@@ -11,6 +11,57 @@ $total = $subtotal + COSTOENVIO;
 $tituloTerminos = !empty(getInfoPage(PTERMINOS)) ? getInfoPage(PTERMINOS)['titulo'] : "";
 $infoTerminos = !empty(getInfoPage(PTERMINOS)) ? getInfoPage(PTERMINOS)['contenido'] : "";
 ?>
+<<<<<<< HEAD
+=======
+<script
+    src="https://www.paypal.com/sdk/js?client-id=<?= IDCLIENTE ?>&currency=<?= CURRENCY ?>">
+</script>
+<script>
+  paypal.Buttons({
+    createOrder: function(data, actions) {
+      return actions.order.create({
+        purchase_units: [{
+          amount: {
+            value: <?= $total; ?>
+          },
+          description: "Compra de artículos en <?= NOMBRE_EMPRESA ?> por <?= SMONEY.$total ?> ",
+        }]
+      });
+    },
+    onApprove: function(data, actions) {
+      // This function captures the funds from the transaction.
+      return actions.order.capture().then(function(details) {
+      		let base_url = "<?= base_url(); ?>";
+	        let dir = document.querySelector("#txtDireccion").value;
+	        let ciudad = document.querySelector("#txtCiudad").value;
+	        let inttipopago = 1; 
+	        let request = (window.XMLHttpRequest) ? 
+	                    new XMLHttpRequest() : 
+	                    new ActiveXObject('Microsoft.XMLHTTP');
+			let ajaxUrl = base_url+'/Tienda/procesarVenta';
+			let formData = new FormData();
+		    formData.append('direccion',dir);    
+		   	formData.append('ciudad',ciudad);
+			formData.append('inttipopago',inttipopago);
+		   	formData.append('datapay',JSON.stringify(details));
+		   	request.open("POST",ajaxUrl,true);
+		    request.send(formData);
+		    request.onreadystatechange = function(){
+		    	if(request.readyState != 4) return;
+		    	if(request.status == 200){
+		    		let objData = JSON.parse(request.responseText);
+		    		if(objData.status){
+		    			window.location = base_url+"/tienda/confirmarpedido/";
+		    		}else{
+		    			swal("", objData.msg , "error");
+		    		}
+		    	}
+		    }
+      });
+    }
+  }).render('#paypal-btn-container');
+</script>
+>>>>>>> ee63c092eaf0cf6c86a13f7abe46bb5d979ab21d
 
 <!-- Modal -->
 <div class="modal fade" id="modalTerminos" tabindex="-1" aria-hidden="true">
