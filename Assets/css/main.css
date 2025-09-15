@@ -14971,11 +14971,12 @@ be a descendant of the grid when it is being dragged.
 .app-sidebar__toggle {
   padding: 0 15px;
   font-family: fontAwesome;
-  color: #fff;
+  color: #f1f1f1;
   line-height: 2.4;
   -webkit-transition: background-color 0.3s ease;
   -o-transition: background-color 0.3s ease;
   transition: background-color 0.3s ease;
+
 }
 
 @media (max-width: 767px) {
@@ -14992,7 +14993,7 @@ be a descendant of the grid when it is being dragged.
 }
 
 .app-sidebar__toggle:focus, .app-sidebar__toggle:hover {
-  color: #f1f1f1;
+  color: #fff;
   background-color: #FF0000;
   text-decoration: none;
 }
@@ -15026,9 +15027,13 @@ be a descendant of the grid when it is being dragged.
 }
 
 .app-nav__item:hover, .app-nav__item:focus {
-  color: #f1f1f1;
-  background-color: #FF0000;
-  text-decoration: none;
+color: #ffffff; /* Texto blanco para contraste */
+background: linear-gradient(135deg, #000000, #ff0000); /* Degradado de negro a rojo */
+text-decoration: none;
+padding: 10px 15px;
+border: none; /* Sin borde para mantenerlo limpio */
+border-radius: 4px;
+transition: all 0.3s ease;
 }
 
 .app-search {
@@ -15151,7 +15156,7 @@ be a descendant of the grid when it is being dragged.
 .app-notification__message {
   line-height: 1.2;
 }
-
+/* Estilo del Dashboard color del fondo*/
 .app-sidebar {
   position: fixed;
   top: 0;
@@ -15161,7 +15166,7 @@ be a descendant of the grid when it is being dragged.
   width: 230px;
   overflow: auto;
   z-index: 10;
-  background-color: #222d32;
+  background: linear-gradient(135deg, #000000, #ff0000);
   -webkit-box-shadow: 0px 8px 17px rgba(0, 0, 0, 0.2);
           box-shadow: 0px 8px 17px rgba(0, 0, 0, 0.2);
   -webkit-transition: left 0.3s ease,
@@ -15254,12 +15259,12 @@ be a descendant of the grid when it is being dragged.
  background-color 0.3s ease;
   color: #fff;
 }
-
+/*Colores de los fondos de los titulos del dashboard*/
 .app-menu__item.active, .app-menu__item:hover, .app-menu__item:focus {
   background: #0d1214;
-  border-left-color: #009688;
+  border-left-color: #FFF;
   text-decoration: none;
-  color: #fff;
+  background: #ffffff;
 }
 
 .app-menu__icon {
