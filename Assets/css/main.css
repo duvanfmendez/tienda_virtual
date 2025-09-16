@@ -14940,19 +14940,18 @@ be a descendant of the grid when it is being dragged.
 }
 
 .app-header__logo {
-  background-image: url('Assets/images/fondo.png');
   -webkit-box-flex: 1;
       -ms-flex: 1 0 auto;
           flex: 1 0 auto;
   color: #fff;
   text-align: center;
-  font-family: 'Niconne';
+  font-family: 'Roboto', sans-serif;
   padding: 0 15px;
   font-size: 26px;
   font-weight: 400;
   line-height: 50px;
 }
-
+/* Degradado de fondo para el logo */
 @media (min-width: 768px) {
   .app-header__logo {
     -webkit-box-flex: 0;
@@ -14960,7 +14959,7 @@ be a descendant of the grid when it is being dragged.
             flex: 0 0 auto;
     display: block;
     width: 230px;
-    background: conic-gradient(from 104deg at center,#470000, #000000);
+    background: conic-gradient(from 110deg at center,#470000, #000000);
   }
 }
 
@@ -14968,6 +14967,7 @@ be a descendant of the grid when it is being dragged.
   text-decoration: none;
   color: #000000;
 }
+
 
 .app-sidebar__toggle {
   padding: 0 15px;
