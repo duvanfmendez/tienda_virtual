@@ -66,10 +66,12 @@
                   <label>Identificación Tributaria</label>
                   <input class="form-control" type="text" id="txtNit" name="txtNit" value="<?= $_SESSION['userData']['nit']; ?>">
                 </div>
-                <div class="col-md-6">
+                <!--- comentario sobre cambio en perfil fiscal --->
+                <div class="col-md-6"> 
                   <label>Nombre fiscal</label>
-                  <input class="form-control" type="text" id="txtNombreFiscal" name="txtNombreFiscal" value="<?= $_SESSION['userData']['nombrefiscal']; ?>" >
-                </div>
+                  <input class="form-control" type="text" id="txtNombreFiscal" name="txtNombreFiscal" 
+                    value="<?= isset($_SESSION['userData']['nombrefiscal']) ? htmlspecialchars($_SESSION['userData']['nombrefiscal']) : ''; ?>">
+              </div>
               </div>
               <div class="row">
                 <div class="col-md-12 mb-4">
