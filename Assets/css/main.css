@@ -14940,6 +14940,7 @@ be a descendant of the grid when it is being dragged.
 }
 
 .app-header__logo {
+  background-image: url('Assets/images/fondo.png');
   -webkit-box-flex: 1;
       -ms-flex: 1 0 auto;
           flex: 1 0 auto;
@@ -14959,13 +14960,13 @@ be a descendant of the grid when it is being dragged.
             flex: 0 0 auto;
     display: block;
     width: 230px;
-    background-color: #007d71;
+    background: conic-gradient(from 105deg at center,#470000, #000000);
   }
 }
 
 .app-header__logo:focus, .app-header__logo:hover {
   text-decoration: none;
-  color: #fff;
+  color: #000000;
 }
 
 .app-sidebar__toggle {
