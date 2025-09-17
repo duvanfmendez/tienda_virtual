@@ -22,7 +22,7 @@
       </div>
     </div>
     <!-- Navbar-->
-    <header class="app-header"><img src="Assets/images/uploads/uploads/logo.jpg" width="50" height="50"><a class="app-header__logo" href="<?= base_url(); ?>/dashboard">Stunt Riders</a>
+    <header class="app-header"><img src="Assets/images/uploads/uploads/logo.jpg" width="45" height="45" ><a class="app-header__logo" href="<?= base_url(); ?>/dashboard">Stunt Riders</a>
       <!-- Sidebar toggle button--><a class="app-sidebar__toggle" href="#" data-toggle="sidebar" aria-label="Hide Sidebar"><i class="fas fa-bars"></i></a>
       <!-- Navbar Right Menu-->
       <ul class="app-nav">

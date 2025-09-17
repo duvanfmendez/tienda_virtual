@@ -76,7 +76,8 @@
               <div class="row">
                 <div class="col-md-12 mb-4">
                   <label>Dirección fiscal</label>
-                  <input class="form-control" type="text" id="txtDirFiscal" name="txtDirFiscal" value="<?= $_SESSION['userData']['direccionfiscal']; ?>">
+                  <input class="form-control" type="text" id="txtDirFiscal" name="txtDirFiscal" 
+                  value="<?= isset($_SESSION['userData']['direccionfiscal'])? htmlspecialchars($_SESSION['userData']['direccionfiscal']) : ''; ?>">
                 </div>
               </div>
               <div class="row mb-10">
