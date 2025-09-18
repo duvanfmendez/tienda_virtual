@@ -11,8 +11,6 @@ $total = $subtotal + COSTOENVIO;
 $tituloTerminos = !empty(getInfoPage(PTERMINOS)) ? getInfoPage(PTERMINOS)['titulo'] : "";
 $infoTerminos = !empty(getInfoPage(PTERMINOS)) ? getInfoPage(PTERMINOS)['contenido'] : "";
 ?>
-<<<<<<< HEAD
-=======
 <script
     src="https://www.paypal.com/sdk/js?client-id=<?= IDCLIENTE ?>&currency=<?= CURRENCY ?>">
 </script>
@@ -61,7 +59,6 @@ $infoTerminos = !empty(getInfoPage(PTERMINOS)) ? getInfoPage(PTERMINOS)['conteni
     }
   }).render('#paypal-btn-container');
 </script>
->>>>>>> ee63c092eaf0cf6c86a13f7abe46bb5d979ab21d
 
 <!-- Modal -->
 <div class="modal fade" id="modalTerminos" tabindex="-1" aria-hidden="true">

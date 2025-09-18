@@ -35,7 +35,7 @@
           </div>
           <div class="row invoice-info">
             <div class="col-4">
-              <address><strong><?= NOMBRE_EMPESA; ?></strong><br>
+              <address><strong><?= NOMBRE_EMPRESA; ?></strong><br>
                 <?= DIRECCION ?><br>
                 <?= TELEMPRESA ?><br>
                 <?= EMAIL_EMPRESA ?><br>

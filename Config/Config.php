@@ -37,7 +37,7 @@ const SECRET = "EI05lyjJQDX_OBJh3qiSmRoDjLjN_w5TC-YNMY5_PhtRQ7SobYlHKER_S0TRgF_Y
 const NOMBRE_REMITENTE = "Soporte Stunt Riders";
 const EMAIL_REMITENTE  = "soportestuntriders@gmail.com";
 const NOMBRE_EMPRESA   = "Stunt Riders";
-const WEB_EMPRESA      = "www.stuntriders.com"; // si la tienes
+const WEB_EMPRESA      = "www.stuntriders.com"; 
 
 
 const DESCRIPCION = "La mejor tienda De Motos De lujo.";
