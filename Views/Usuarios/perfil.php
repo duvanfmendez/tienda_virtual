@@ -17,7 +17,6 @@
       <div class="tile p-0">
         <ul class="nav flex-column nav-tabs user-tabs">
           <li class="nav-item"><a class="nav-link active" href="#user-timeline" data-toggle="tab">Datos personales</a></li>
-          <li class="nav-item"><a class="nav-link" href="#user-settings" data-toggle="tab">Datos fiscales</a></li>
         </ul>
       </div>
     </div>
@@ -55,37 +54,6 @@
                 </tr>
               </tbody>
             </table>
-          </div>
-        </div>
-        <div class="tab-pane fade" id="user-settings">
-          <div class="tile user-settings">
-            <h4 class="line-head">Datos fiscales</h4>
-            <form id="formDataFiscal" name="formDataFiscal">
-              <div class="row mb-4">
-                <div class="col-md-6">
-                  <label>Identificación Tributaria</label>
-                  <input class="form-control" type="text" id="txtNit" name="txtNit" value="<?= $_SESSION['userData']['nit']; ?>">
-                </div>
-                <!--- comentario sobre cambio en perfil fiscal --->
-                <div class="col-md-6"> 
-                  <label>Nombre fiscal</label>
-                  <input class="form-control" type="text" id="txtNombreFiscal" name="txtNombreFiscal" 
-                    value="<?= isset($_SESSION['userData']['nombrefiscal']) ? htmlspecialchars($_SESSION['userData']['nombrefiscal']) : ''; ?>">
-              </div>
-              </div>
-              <div class="row">
-                <div class="col-md-12 mb-4">
-                  <label>Dirección fiscal</label>
-                  <input class="form-control" type="text" id="txtDirFiscal" name="txtDirFiscal" 
-                  value="<?= isset($_SESSION['userData']['direccionfiscal'])? htmlspecialchars($_SESSION['userData']['direccionfiscal']) : ''; ?>">
-                </div>
-              </div>
-              <div class="row mb-10">
-                <div class="col-md-12">
-                  <button class="btn btn-primary" type="submit"><i class="fa fa-fw fa-lg fa-check-circle"></i> Guardar</button>
-                </div>
-              </div>
-            </form>
           </div>
         </div>
       </div>
