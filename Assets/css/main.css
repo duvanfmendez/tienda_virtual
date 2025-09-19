@@ -14959,7 +14959,7 @@ be a descendant of the grid when it is being dragged.
             flex: 0 0 auto;
     display: block;
     width: 230px;
-    background: conic-gradient(from 110deg at center,#470000, #000000);
+    background: conic-gradient(from 105deg at center,#450000, #000000);
   }
 }
 
