@@ -22,7 +22,7 @@
 					<div class="container h-full">
 						<div class="flex-col-l-m h-full p-t-100 p-b-30 respon5">
 							<div class="layer-slick1 animated visible-false" data-appear="fadeInDown" data-delay="0">
-								<span class="ltext-101 cl6 respon2" style=color:#000;>
+								<span class="ltext-101 cl6 respon2" style=color:#fff;>
 									<?= $arrSlider[$i]['descripcion'] ?>
 								</span>
 							</div>
