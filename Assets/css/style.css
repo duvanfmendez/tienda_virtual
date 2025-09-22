@@ -16,12 +16,14 @@
 .app-sidebar__toggle::before{
 	display: none;
 }
+ 
+  
 .headerRegister, .header-primary{
-	background: #009688;
+	background: linear-gradient(135deg, #000000, #4e4e4e);
 	color: #FFF;
 }
 .headerUpdate{
-	background: #007bff;
+	background: linear-gradient(135deg, #000000, #4e4e4e);
 	color: #FFF;
 }
 .textcenter{

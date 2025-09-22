@@ -2618,15 +2618,24 @@ fieldset:disabled a.btn {
 }
 
 .btn-primary {
-  color: #FFF;
-  background-color: #009688;
-  border-color: #009688;
+   color: #FFF; /* Texto blanco */
+  background-color: #333333; /* Gris oscuro / antracita */
+  border-color: #333333; /* Borde gris oscuro */
+  font-weight: 600; /* Fuente semi-negrita */
+  border-radius: 0px; /* Bordes redondeados */
+  text-transform: uppercase; /* Texto en mayúsculas */
+  transition: all 0.3s ease; /* Transición suave para los efectos */
+  cursor: pointer; /* Cambiar cursor a puntero */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra sutil */
+  display: inline-block;
 }
 
 .btn-primary:hover {
-  color: #FFF;
-  background-color: #007065;
-  border-color: #00635a;
+  color: #FFF; /* Texto blanco */
+  background-color: #ff0000; /* Rojo brillante para hover */
+  border-color: #ff0000; /* Borde rojo brillante */
+  transform: translateY(-2px); /* Efecto de levantamiento */
+  box-shadow: 0 8px 12px rgba(0, 0, 0, 0.15);
 }
 
 .btn-primary:focus, .btn-primary.focus {
@@ -2726,15 +2735,24 @@ fieldset:disabled a.btn {
 }
 
 .btn-info {
-  color: #FFF;
-  background-color: #17a2b8;
-  border-color: #17a2b8;
+  color: #FFF; /* Texto blanco */
+  background-color: #333333; /* Gris oscuro / antracita */
+  border-color: #333333; /* Borde gris oscuro */
+  font-weight: 600; /* Fuente semi-negrita */
+  border-radius: 0px; /* Bordes redondeados */
+  text-transform: uppercase; /* Texto en mayúsculas */
+  transition: all 0.3s ease; /* Transición suave para los efectos */
+  cursor: pointer; /* Cambiar cursor a puntero */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra sutil */
+  display: inline-block;
 }
 
 .btn-info:hover {
-  color: #FFF;
-  background-color: #138496;
-  border-color: #117a8b;
+  color: #FFF; /* Texto blanco */
+  background-color: #ff0000; /* Rojo brillante para hover */
+  border-color: #ff0000; /* Borde rojo brillante */
+  transform: translateY(-2px); /* Efecto de levantamiento */
+  box-shadow: 0 8px 12px rgba(0, 0, 0, 0.15);
 }
 
 .btn-info:focus, .btn-info.focus {
@@ -5245,9 +5263,9 @@ input[type="button"].btn-block {
 
 .page-item.active .page-link {
   z-index: 1;
-  color: #FFF;
-  background-color: #009688;
-  border-color: #009688;
+  color: #fff;
+  background-color: #ff0000;
+  background-color: #ff0000;
 }
 
 .page-item.disabled .page-link {
@@ -6245,7 +6263,7 @@ a.close.disabled {
           flex-direction: column;
   width: 100%;
   pointer-events: auto;
-  background-color: #FFF;
+  background-color: #fff;
   background-clip: padding-box;
   border: 1px solid rgba(0, 0, 0, 0.2);
   border-radius: 0.3rem;
