@@ -34,7 +34,7 @@
 				$busqueda = " AND p.personaid =".$idpersona;
 			}
 			$request = array();
-			$sql = "SELECT p.idpedido,
+			$sql = "SELECT 	p.idpedido,
 							p.referenciacobro,
 							p.idtransaccionpaypal,
 							p.personaid,
@@ -57,13 +57,13 @@
 										apellidos,
 										telefono,
 										email_user,
-										nit, 
+										nit 
 								FROM persona WHERE idpersona = $idpersona ";
 				$requestcliente = $this->select($sql_cliente);
-				$sql_detalle = "SELECT p.idproducto,
-											p.nombre as producto,
-											d.precio,
-											d.cantidad
+				$sql_detalle = "SELECT 	p.idproducto,
+										p.nombre as producto,
+										d.precio,
+										d.cantidad
 									FROM detalle_pedido d
 									INNER JOIN producto p
 									ON d.productoid = p.idproducto

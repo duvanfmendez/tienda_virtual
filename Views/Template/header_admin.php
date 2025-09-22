@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="author" content="santiago">
-    <meta name="theme-color" content="#009688">
+    <meta name="theme-color" content="#ff0000ff">
     <link rel="shortcut icon" href="<?= media();?>/images/favicon.ico">
     <title><?= $data['page_tag'] ?></title>
     <!-- Main CSS-->
