@@ -74,10 +74,9 @@ if(isset($_SESSION['arrCarrito']) and count($_SESSION['arrCarrito']) > 0){
 
 									</td>
 									<td class="column-1">
-									<div class="how-itemcart1" idpr="<?= $idProducto ?>" op="2"  onclick="fntdelItem(this)">
-												<i class="zmdi zmdi-delete" ></i>
-
-											</div>
+										<div class="how-itemcart1" idpr="<?= $idProducto ?>" op="2"  onclick="fntdelItem(this)">
+											<i class="zmdi zmdi-delete" ></i>
+										</div>
 									</td>
 
 										
